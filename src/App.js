@@ -45,7 +45,7 @@ function App() {
         {/* <Route path="/" element={loading ? <Loader /> : <Home />} /> */}
         <Route path="/treatments" element={loading ? <Loader /> : <Treatments />} />
         <Route path="/treatment/:id" element={loading ? <Loader /> : <TreatmentDetail />} />
-        <Route path="/aboutme" element={loading ? <Loader /> : <About />} />
+        <Route path="/" element={loading ? <Loader /> : <About />} />
         <Route path="/blogs" element={loading ? <Loader /> : <Blogs />} />
         <Route path="/blog/:id" element={loading ? <Loader /> : <BlogDetail />} />
         <Route path="/articles" element={loading ? <Loader /> : <Articles />} />
