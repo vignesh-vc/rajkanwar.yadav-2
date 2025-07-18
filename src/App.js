@@ -42,7 +42,7 @@ function App() {
       <Navbar />
       <Routes>
         {/* Public routes */}
-        <Route path="/" element={loading ? <Loader /> : <Home />} />
+        {/* <Route path="/" element={loading ? <Loader /> : <Home />} /> */}
         <Route path="/treatments" element={loading ? <Loader /> : <Treatments />} />
         <Route path="/treatment/:id" element={loading ? <Loader /> : <TreatmentDetail />} />
         <Route path="/aboutme" element={loading ? <Loader /> : <About />} />
