@@ -1,0 +1,38 @@
+/* Optional: src/App.css or src/admin/Sidebar.css */
+@media (max-width: 768px) {
+  .fixed {
+    position: fixed;
+  }
+
+  .md\\:hidden {
+    display: block;
+  }
+
+  .md\\:flex {
+    display: flex;
+  }
+
+  .bg-opacity-50 {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .bg-white {
+    background-color: #ffffff;
+  }
+
+  .transition-transform {
+    transition: transform 0.3s ease;
+  }
+
+  .transform {
+    transform: translateX(0);
+  }
+
+  .translate-x-0 {
+    transform: translateX(0);
+  }
+
+  .-translate-x-full {
+    transform: translateX(-100%);
+  }
+}
