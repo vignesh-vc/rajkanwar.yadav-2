@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import profileImg from "../assests/photo.jpg";
+import { FaLinkedin, FaFacebook } from "react-icons/fa";
 
 const About = () => {
   const [activeTab, setActiveTab] = useState("default");
@@ -9,6 +10,7 @@ const About = () => {
   }, []);
 
   const dotStyle = "absolute w-3.5 h-3.5 bg-[#00CC99] rounded-full left-[-25px] top-2";
+  const dotStyleBlack = "absolute w-3.5 h-3.5 bg-black rounded-full left-[-25px] top-2";
 
   const renderDoctorInfo = () => (
     <div className="w-full relative border-l-2 border-[#00CC99] pl-10">
@@ -265,24 +267,29 @@ const About = () => {
 
       {/* Experience Content */}
       {activeTab === "default" ? (
-        <div className="space-y-6">
+        <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2">
           {defaultExperience.map((item, index) => (
-            <div className="relative" key={index}>
-              <div className={dotStyle}></div>
-              <p className="text-gray-700 leading-relaxed">{item}</p>
-            </div>
+            <li key={index} className="leading-relaxed">{item}</li>
           ))}
-        </div>
+        </ul>
       ) : (
         <div className="space-y-6">
-          <ul className="list-disc pl-5 text-gray-700 text-sm">
-            {additionalExperience[activeTab].map((item, index) => (
-              <li key={index} className="relative">
-                <div className={dotStyle}></div>
-                <span className="text-gray-700 leading-relaxed">{item}</span>
-              </li>
-            ))}
-          </ul>
+          {['Post Graduate Thesis:', 'Organizational skills and social work', 'Affiliations and Memberships'].includes(activeTab) ? (
+            <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2">
+              {additionalExperience[activeTab].map((item, index) => (
+                <li key={index} className="leading-relaxed">{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <ul className="list-disc pl-5 text-gray-700 text-sm">
+              {additionalExperience[activeTab].map((item, index) => (
+                <li key={index} className="relative">
+                  <div className={dotStyle}></div>
+                  <span className="text-gray-700 leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       )}
     </div>
@@ -303,16 +310,15 @@ const About = () => {
   ];
   const specialty = "Nephrology";
   const socialLinks = [
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/raj-kanwar-yadav-01910387/" },
-    { name: "Twitter", url: "#" },
-    { name: "Facebook", url: "https://www.facebook.com/rajkanwar.yadav/" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/raj-kanwar-yadav-01910387/", icon: <FaLinkedin className="text-2xl" /> },
+    { name: "Facebook", url: "https://www.facebook.com/rajkanwar.yadav/", icon: <FaFacebook className="text-2xl" /> },
   ];
 
   return (
     <div className="min-h-screen bg-white px-2 sm:px-4 md:px-8 py-6 flex flex-col items-center">
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-[auto,1fr] gap-8">
         {/* Left Column */}
-        <div className="flex flex-col gap-6 items-center md:items-start md:sticky md:top-8 md:self-start h-fit pr-4">
+        <div className="flex flex-col gap-6 items-center md:items-start md:sticky md:top-20 md:self-start h-fit pr-4">
           {/* Profile Image */}
           <img
             src={profileImg}
@@ -324,7 +330,6 @@ const About = () => {
             <h3 className="text-lg font-semibold text-[#00CC99] mb-2">Contact Information</h3>
             <p className="text-gray-700 text-sm whitespace-pre-line">{contactInfo.address}</p>
             <p className="text-gray-700 text-sm">Phone: {contactInfo.phone}</p>
-            <p className="text-gray-700 text-sm">Fax: {contactInfo.fax}</p>
             <p className="text-gray-700 text-sm">Email: <a href={`mailto:${contactInfo.email}`} className="text-[#00CC99] underline">{contactInfo.email}</a></p>
           </section>
           {/* Research Interests */}
@@ -347,7 +352,10 @@ const About = () => {
             <ul className="flex gap-3">
               {socialLinks.map((link, idx) => (
                 <li key={idx}>
-                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#00CC99] underline text-sm">{link.name}</a>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-[#00CC99] text-sm flex items-center gap-1 hover:text-[#336699]">
+                    {link.icon}
+                    <span className="sr-only">{link.name}</span>
+                  </a>
                 </li>
               ))}
             </ul>

@@ -50,7 +50,7 @@ const Navbar = () => {
           </button>
 
           <ul className="space-y-4 mt-10">
-            {["About Me"].map((item, index) => (
+            {[].map((item, index) => (
               <li key={index}>
                 <Link
                    to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "")}`}
@@ -67,7 +67,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex lg:items-center lg:ml-auto lg:gap-x-5">
-          {[,"About Me"].map((item, index) => (
+          {[].map((item, index) => (
             <Link
               key={index}
               to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "")}`}
