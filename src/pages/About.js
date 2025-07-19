@@ -329,7 +329,7 @@ const About = () => {
           <section className="bg-white rounded-xl shadow p-4 w-full">
             <h3 className="text-lg font-semibold text-[#00CC99] mb-2">Contact Information</h3>
             <p className="text-gray-700 text-sm whitespace-pre-line">{contactInfo.address}</p>
-            <p className="text-gray-700 text-sm">Phone: {contactInfo.phone}</p>
+            {/* <p className="text-gray-700 text-sm">Phone: {contactInfo.phone}</p> */}
             <p className="text-gray-700 text-sm">Email: <a href={`mailto:${contactInfo.email}`} className="text-[#00CC99] underline">{contactInfo.email}</a></p>
           </section>
           {/* Research Interests */}
