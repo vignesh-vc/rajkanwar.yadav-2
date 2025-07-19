@@ -203,8 +203,8 @@ const About = () => {
 
   const additionalExperience = {
     "Post Graduate Thesis:": [
-      "“Ambulatory blood pressure and clinic-based blood pressure measurement in living kidney donors before and after nephrectomy- A short term follow-up study” - Dissertation for DM Nephrology",
-      "“Glucose Tolerance in Non - Diabetic Patients with Acute Myocardial Infarction – A Short Term Follow -up Study” Thesis for MD General Medicine"
+      "Ambulatory blood pressure and clinic-based blood pressure measurement in living kidney donors before and after nephrectomy- A short term follow-up study - Dissertation for DM Nephrology",
+      "Glucose Tolerance in Non - Diabetic Patients with Acute Myocardial Infarction – A Short Term Follow -up Study Thesis for MD General Medicine"
     ],
     "Organizational skills and social work": [
       "Organized multiple health awareness medical camps in Haryana state",
