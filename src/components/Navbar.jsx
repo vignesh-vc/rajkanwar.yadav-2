@@ -50,7 +50,7 @@ const Navbar = () => {
           </button>
 
           <ul className="space-y-4 mt-10">
-            {["Home","conference","publications","honors"].map((item, index) => (
+            {["Home","Conference","Publications","Honors"].map((item, index) => (
               <li key={index}>
                 <Link
                    to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "")}`}
@@ -58,7 +58,7 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                 >
                   {item}
-                  <span className="absolute left-0 bottom-0 w-0 h-[5px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute left-0 bottom-0 w-0 h-[5px] bg-[#00CC99] transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               </li>
             ))}
@@ -67,7 +67,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex lg:items-center lg:ml-auto lg:gap-x-5">
-          {["Home","conference","publications","honors"].map((item, index) => (
+          {["Home","Conference","Publications","Honors"].map((item, index) => (
             <Link
               key={index}
               to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "")}`}
@@ -75,7 +75,7 @@ const Navbar = () => {
               style={{ fontWeight: "bold" }}
             >
               {item}
-              <span className="absolute left-0 bottom-[-5px] w-0 h-[4px] bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 bottom-[-5px] w-0 h-[4px] bg-[#00CC99] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
 

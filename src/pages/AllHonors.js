@@ -73,10 +73,10 @@ const AllHonors = () => (
         ))}
       </ul>
       <button
-        onClick={() => window.location.href = '/about'}
+        onClick={() => window.location.href = '/'}
         className="mt-8 px-4 py-2 bg-[#00CC99] text-white rounded shadow hover:bg-[#009977] transition"
       >
-        Back to About
+        Back to Home
       </button>
     </div>
   </div>

@@ -163,7 +163,7 @@ const About = () => {
     <div className="min-h-screen bg-gray-50 px-2 sm:px-4 md:px-8 py-6 flex flex-col items-center">
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-[400px,1fr] gap-8">
         {/* Left Column */}
-        <div className="flex flex-col gap-6 items-center md:items-start md:sticky md:top-20 md:self-start h-fit pr-4">
+        <div className="flex flex-col gap-6 items-center md:items-start md:sticky md:top-20 md:self-start h-fit p-5 bg-gray-200 md:bg-gray-300 w-full rounded-xl">
           {/* Profile Image */}
           <img
             src={profileImg}
@@ -304,35 +304,35 @@ const About = () => {
           <section>
             <div className="w-full relative border-l-2 border-gray-300 pl-10">
               <Section title="Teaching Experience">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8">
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {defaultExperience.map((item, index) => (
-                    <li key={index} className="leading-relaxed">{item}</li>
+                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
               <Section title="Affiliations and Membership">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8">
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {(additionalExperience["Affiliations and Memberships"] || []).map((item, index) => (
-                    <li key={index} className="leading-relaxed">{item}</li>
+                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
               <Section title="PG Thesis">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8">
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {(additionalExperience["Post Graduate Thesis:"] || []).map((item, index) => (
-                    <li key={index} className="leading-relaxed">{item}</li>
+                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
               <Section title="Organizational Skills & Social Work">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8">
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {(additionalExperience["Organizational skills and social work"] || []).map((item, index) => (
-                    <li key={index} className="leading-relaxed">{item}</li>
+                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
               <Section title="Recent Clinical Trials">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8">
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   <li className="text-gray-600 leading-relaxed">
                     As Open-label, Randomized, Parallel-group, Two Arm Clinical Study to Evaluate the anti-inflammatory effect of ferronemia (lactoferrin + disodium guanosine monophosphate) tablet + Conservative Chronic Kidney Disease Management Therapy versus Conservative Chronic Kidney Disease Management Therapy in the Subjects with Chronic Kidney Disease.<br />
                     <b>Principal Investigator</b>, Jul 2022 - Mar 2023, Trial ID: CTRI/2022/07/044200
@@ -344,40 +344,40 @@ const About = () => {
                 </ul>
               </Section>
               <Section title="Recent Conferences">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8">
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {getRecentByYear(conferences).map((conf, idx) => (
-                    <li key={idx} className="leading-relaxed">{conf}</li>
+                    <li key={idx} className="leading-relaxed break-words w-full">{conf}</li>
                   ))}
                 </ul>
                 <button
                   onClick={() => window.location.href = '/conference'}
-                  className="mt-2 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition"
+                  className="mt-2 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition w-full sm:w-auto"
                 >
                   All Conferences
                 </button>
               </Section>
               <Section title="Recent Presentations">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8">
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {getRecentByYear(presentations).map((pres, idx) => (
-                    <li key={idx} className="leading-relaxed">{pres}</li>
+                    <li key={idx} className="leading-relaxed break-words w-full">{pres}</li>
                   ))}
                 </ul>
                 <button
                   onClick={() => window.location.href = '/conference'}
-                  className="mt-2 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition"
+                  className="mt-2 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition w-full sm:w-auto"
                 >
                   All Presentations
                 </button>
               </Section>
               <Section title="Recent Publications">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8">
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {sortedRecentPublications.map((item, index) => (
-                    <li key={index} className="leading-relaxed">{item}</li>
+                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
                   ))}
                 </ul>
                 <button
                   onClick={() => window.location.href = '/all-publications'}
-                  className="mt-2 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition"
+                  className="mt-2 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition w-full sm:w-auto"
                 >
                   All Publications
                 </button>
@@ -397,18 +397,11 @@ const About = () => {
                       {item.year && <p className="text-gray-600">{item.year}</p>}
                     </div>
                   ))}
-                  {visibleHonors < honorsAwards.length && (
-                    <button
-                      onClick={() => setVisibleHonors((prev) => prev + 10)}
-                      className="mt-4 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition"
-                    >
-                      Show More
-                    </button>
-                  )}
+                  
                 </div>
               </div>
               <button
-                onClick={() => window.location.href = '/all-honors'}
+                onClick={() => window.location.href = '/honors'}
                 className="mt-4 ml-4 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition"
               >
                 All Honors, Awards and Achievements
