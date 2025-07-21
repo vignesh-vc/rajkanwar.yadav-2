@@ -17,15 +17,10 @@ import Articles from "./pages/Articles";
 import AppointmentPage from "./pages/AppointmentPage";
 import ThankYou from "./components/ThankYou";
 import CalendarView from "./components/CalendarView";
+import AllPublications from './pages/AllPublications';
+import Conference from './pages/Conference';
+import AllHonors from './pages/AllHonors';
 
-//admin
-import AdminLayout from "./pages/AdminLayout";
-import AdminDashboard from './admin/AdminDashboard';
-import ViewAppointments from './admin/ViewAppointments';
-import AddSlots from './admin/AddSlots';
-import DoctorAvailability from './admin/DoctorAvailability';
-import ReviewsSection from './admin/ReviewsSection';
-import Sidebar from './admin/Sidebar';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -52,6 +47,9 @@ function App() {
         <Route path="/booking" element={loading ? <Loader /> : <AppointmentPage />} />
         <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/calendar" element={<CalendarView />} />
+        <Route path="/publications" element={<AllPublications />} />
+        <Route path="/conference" element={<Conference />} />
+        <Route path="/honors" element={<AllHonors />} />
 
         {/* Admin layout and nested admin routes */}
         {/* <Route path="/admin" element={<AdminLayout />}>
