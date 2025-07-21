@@ -152,6 +152,39 @@ const sortedRecentPublications = [...recentPublications]
   .sort((a, b) => extractYear(b) - extractYear(a))
   .slice(0, 10);
 
+function linkify(text) {
+  // First, linkify URLs
+  let parts = text.split(/(https?:\/\/[^\s]+)/g).map((part, i) =>
+    part.match(/https?:\/\/[^\s]+/)
+      ? <a key={`url-${i}`} href={part} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline break-all">{part}</a>
+      : part
+  );
+  // Then, linkify PMID
+  return parts.flatMap((part, i) => {
+    if (typeof part === "string") {
+      return part.split(/(PMID:\s*\d+)/g).map((pmidPart, j) => {
+        const match = pmidPart.match(/PMID:\s*(\d+)/);
+        if (match) {
+          const pmid = match[1];
+          return (
+            <a
+              key={`pmid-${i}-${j}`}
+              href={`https://pubmed.ncbi.nlm.nih.gov/${pmid}/`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline break-all"
+            >
+              {pmidPart}
+            </a>
+          );
+        }
+        return pmidPart;
+      });
+    }
+    return part;
+  });
+}
+
 const About = () => {
   const [visibleHonors, setVisibleHonors] = useState(10);
 
@@ -346,7 +379,7 @@ const About = () => {
               <Section title="Recent Conferences">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {getRecentByYear(conferences).map((conf, idx) => (
-                    <li key={idx} className="leading-relaxed break-words w-full">{conf}</li>
+                    <li key={idx} className="leading-relaxed break-words w-full">{linkify(conf)}</li>
                   ))}
                 </ul>
                 <button
@@ -359,7 +392,7 @@ const About = () => {
               <Section title="Recent Presentations">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {getRecentByYear(presentations).map((pres, idx) => (
-                    <li key={idx} className="leading-relaxed break-words w-full">{pres}</li>
+                    <li key={idx} className="leading-relaxed break-words w-full">{linkify(pres)}</li>
                   ))}
                 </ul>
                 <button
@@ -372,11 +405,11 @@ const About = () => {
               <Section title="Recent Publications">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {sortedRecentPublications.map((item, index) => (
-                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
+                    <li key={index} className="leading-relaxed break-words w-full">{linkify(item)}</li>
                   ))}
                 </ul>
                 <button
-                  onClick={() => window.location.href = '/all-publications'}
+                  onClick={() => window.location.href = '/publications'}
                   className="mt-2 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition w-full sm:w-auto"
                 >
                   All Publications
@@ -408,6 +441,34 @@ const About = () => {
               </button>
             </div>
           </section>
+          <Section title="Chapter in Book">
+            <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+              <li className="leading-relaxed break-words w-full">
+                S K Agarwal & Dr. R K Yadav. ABO blood group and antigen:  An overview.  Chapter 1, Page no. 1–6, ABO –incompatible Kidney transplantation, ECAB clinical update nephrology (Elsevier Publication), 2016.
+              </li>
+              <li className="leading-relaxed break-words w-full">
+                Rizvi Y, Yadav RK, Agarwal SK. Approach to Edema, page No.12-14, Edema in renal disease, Nephrology for Physicians, (Tree Life Media) 2017.
+              </li>
+              <li className="leading-relaxed break-words w-full">
+                R K Yadav, Mohita Agarwal, N M Philip, S Yadav. Renal and urinary tract disorders in pregnancy. Chapter 11, Page no 104-11, Common medical disorders in pregnancy (AOGS Publisher) Jan, 2020.
+              </li>
+              <li className="leading-relaxed break-words w-full">
+                RK Yadav, KK Ariga, S Yadav: A renal transplant recipient with current urinary tract infections and graft dysfunction. Pee Pee 2021:237-40 (in press).
+              </li>
+              <li className="leading-relaxed break-words w-full">
+                R K Yadav, S Sundaray S Yadav. Aging and kidney diseases. India Point of Care (Elsevier) (Manuscript no: IPOC -D-21-00443R1) (Digital)(Accepted).
+              </li>
+              <li className="leading-relaxed break-words w-full">
+                Yadav RK, Maity Indradip, Yadav Sushma: Point-of-Care Ultrasound for the Nephrologist. Practical Guide to Point-of-Care Ultrasound A Simplified Approach, JP Brother Medical Publisher First Edition, 2023, 151-160.
+              </li>
+              <li className="leading-relaxed break-words w-full">
+                Sudeep Prakash, Aruna Acharya, RK Yadav: Adequacy of Dialysis, Chapter 31, Page No.136, Introduction, Measures of Dialysis Adequacy, Urea Reduction Ratio (URR) and KT/V, (Jaypee Brothers Medical Publishers (P) Ltd.), 2024.
+              </li>
+              <li className="leading-relaxed break-words w-full">
+                Corresponding author
+              </li>
+            </ul>
+          </Section>
         </div>
       </div>
     </div>

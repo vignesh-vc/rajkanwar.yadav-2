@@ -73,23 +73,52 @@ function extractYear(pub) {
   return null;
 }
 
+function linkify(text) {
+  // First, linkify URLs
+  let parts = text.split(/(https?:\/\/[^\s]+)/g).map((part, i) =>
+    part.match(/https?:\/\/[^\s]+/)
+      ? <a key={`url-${i}`} href={part} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline break-all">{part}</a>
+      : part
+  );
+  // Then, linkify PMID
+  return parts.flatMap((part, i) => {
+    if (typeof part === "string") {
+      return part.split(/(PMID:\s*\d+)/g).map((pmidPart, j) => {
+        const match = pmidPart.match(/PMID:\s*(\d+)/);
+        if (match) {
+          const pmid = match[1];
+          return (
+            <a
+              key={`pmid-${i}-${j}`}
+              href={`https://pubmed.ncbi.nlm.nih.gov/${pmid}/`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline break-all"
+            >
+              {pmidPart}
+            </a>
+          );
+        }
+        return pmidPart;
+      });
+    }
+    return part;
+  });
+}
+
 const AllPublications = () => (
   <div className="min-h-screen bg-gray-50 px-6 md:px-20 py-12">
     <div className="max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">List Of Publications</h1>
       <ul className="space-y-4">
-        {allPublications.map((pub, idx) => {
-          const year = extractYear(pub);
-          return (
-            <li
-              key={idx}
-              className="p-4 border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white"
-            >
-              <div className="text-base font-semibold text-gray-800">{pub.replace(/^(\d+\.|\s+)/, "")}</div>
-              {year && <div className="text-gray-500 text-sm mt-1">Year: {year}</div>}
-            </li>
-          );
-        })}
+        {allPublications.map((pub, idx) => (
+          <li
+            key={idx}
+            className="p-4 border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white"
+          >
+            <div className="text-base font-semibold text-gray-800">{linkify(pub)}</div>
+          </li>
+        ))}
       </ul>
       <button
         onClick={() => window.location.href = '/'}
