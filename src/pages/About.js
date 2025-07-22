@@ -48,7 +48,20 @@ const honorsAwards = [
   { title: "Member of organization team - Transplant conclave, AIIMS, New Delhi in 2016" },
   { title: "Shri Loknath Saraf Memorial Award, Rajasthan Ratnakar (A Leading Social Organization of Delhi)" }
 ];
-
+const ChapterinBook = [
+  "S K Agarwal & Dr. R K Yadav. ABO blood group and antigen:  An overview.  Chapter 1, Page no. 1–6, ABO –incompatible Kidney transplantation, ECAB clinical update nephrology (Elsevier Publication), 2016.",
+  "Rizvi Y, Yadav RK, Agarwal SK. Approach to Edema, page No.12-14, Edema in renal disease, Nephrology for Physicians, (Tree Life Media) 2017.",
+  "R K Yadav, Mohita Agarwal, N M Philip, S Yadav. Renal and urinary tract disorders in pregnancy. Chapter 11, Page no 104-11, Common medical disorders in pregnancy (AOGS Publisher) Jan, 2020.",
+  "RK Yadav, KK Ariga, S Yadav: A renal transplant recipient with current urinary tract infections and graft dysfunction. Pee Pee 2021:237-40 (in press).",
+  "R K Yadav, S Sundaray S Yadav. Aging and kidney diseases. India Point of Care (Elsevier) (Manuscript no: IPOC -D-21-00443R1) (Digital)(Accepted).",
+  "Yadav RK, Maity Indradip, Yadav Sushma: Point-of-Care Ultrasound for the Nephrologist. Practical Guide to Point-of-Care Ultrasound A Simplified Approach, JP Brother Medical Publisher First Edition, 2023, 151-160.",
+  "Sudeep Prakash, Aruna Acharya, RK Yadav: Adequacy of Dialysis, Chapter 31, Page No.136, Introduction, Measures of Dialysis Adequacy, Urea Reduction Ratio (URR) and KT/V, (Jaypee Brothers Medical Publishers (P) Ltd.), 2024.",
+  "Corresponding author"
+];
+const PersonalStatement = [
+  "Tended to remain actively involved in academic, research and healthcare activities after joining as a teacher in AIIMS, New Delhi and Pt. B.D.S. PGIMS, Rohtak, including under graduate teaching i.e., MBBS, BDS, BSC nursing and post graduate teaching i.e., MD and DM. Supervision of post graduate students (MD and DM) for journal club, seminar, case presentation and group discussion. Always took keen interest in bed side teaching and guiding in dissertation work, article publication of post graduate students. Apart from it, organized multiple nephrology conferences in AIIMS, New Delhi as a team member. ",
+  "Finally for patients, it is my endeavor to deliver a reliable, responsible, transparent and ethical care to them who have entrusted their well-being in my hands."
+]
 const defaultExperience = [
   "Associate Professor (2019-till date), Department of Nephrology, AIIMS, New Delhi",
   "Assistant Professor (2015-2019): Department of Nephrology, AIIMS, New Delhi",
@@ -461,12 +474,12 @@ const About = () => {
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   <li className="text-gray-600 leading-relaxed">
                     As Open-label, Randomized, Parallel-group, Two Arm Clinical Study to Evaluate the anti-inflammatory effect of ferronemia (lactoferrin + disodium guanosine monophosphate) tablet + Conservative Chronic Kidney Disease Management Therapy versus Conservative Chronic Kidney Disease Management Therapy in the Subjects with Chronic Kidney Disease.<br />
-                    <b>Principal Investigator</b>, Jul 2022 - Mar 2023, Trial ID: 
+                    <b>Principal Investigator</b>, Jul 2022 - Mar 2023, Trial ID:
                     <a href="https://ctri.nic.in/Clinicaltrials/pmaindet2.php?EncHid=NzE1MjE=&Enc=&userName=" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">CTRI/2022/07/044200</a>
                   </li>
                   <li className="text-gray-600 leading-relaxed">
                     Pattern of CYP3A5 and MDR-1 single nucleotide polymorphism and its Impact on Individualization of Tacrolimus based Immunosuppression in Living Renal Allograft recipient.<br />
-                    <b>Principal Investigator</b>, Mar 2017 - Mar 2017, Trial ID: 
+                    <b>Principal Investigator</b>, Mar 2017 - Mar 2017, Trial ID:
                     <a href="https://ctri.nic.in/Clinicaltrials/pmaindet2.php?EncHid=MTYyNTc=&Enc=&userName=" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">CTRI/2017/03/007997</a>
                   </li>
                 </ul>
@@ -628,43 +641,36 @@ const About = () => {
             </div>
           </section>
 
+          <section>
+            <div className="w-full relative border-l-2 border-gray-300 pl-10">
+              <div className="mb-10 relative">
+                <div className="absolute w-3.5 h-3.5 bg-gray-300 rounded-full left-[-25px] top-2"></div>
+                <h2 className="text-2xl font-semibold mb-4">Chapter in Book</h2>
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                  {ChapterinBook.map((item, idx) => (
+                    <li key={idx} className="leading-relaxed break-words w-full">{item}</li>
+                  ))}
+                </ul>
+              </div>
 
+            </div>
+          </section>
 
-          <Section title="Chapter in Book">
-            <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
-              <li className="leading-relaxed break-words w-full">
-                S K Agarwal & Dr. R K Yadav. ABO blood group and antigen:  An overview.  Chapter 1, Page no. 1–6, ABO –incompatible Kidney transplantation, ECAB clinical update nephrology (Elsevier Publication), 2016.
-              </li>
-              <li className="leading-relaxed break-words w-full">
-                Rizvi Y, Yadav RK, Agarwal SK. Approach to Edema, page No.12-14, Edema in renal disease, Nephrology for Physicians, (Tree Life Media) 2017.
-              </li>
-              <li className="leading-relaxed break-words w-full">
-                R K Yadav, Mohita Agarwal, N M Philip, S Yadav. Renal and urinary tract disorders in pregnancy. Chapter 11, Page no 104-11, Common medical disorders in pregnancy (AOGS Publisher) Jan, 2020.
-              </li>
-              <li className="leading-relaxed break-words w-full">
-                RK Yadav, KK Ariga, S Yadav: A renal transplant recipient with current urinary tract infections and graft dysfunction. Pee Pee 2021:237-40 (in press).
-              </li>
-              <li className="leading-relaxed break-words w-full">
-                R K Yadav, S Sundaray S Yadav. Aging and kidney diseases. India Point of Care (Elsevier) (Manuscript no: IPOC -D-21-00443R1) (Digital)(Accepted).
-              </li>
-              <li className="leading-relaxed break-words w-full">
-                Yadav RK, Maity Indradip, Yadav Sushma: Point-of-Care Ultrasound for the Nephrologist. Practical Guide to Point-of-Care Ultrasound A Simplified Approach, JP Brother Medical Publisher First Edition, 2023, 151-160.
-              </li>
-              <li className="leading-relaxed break-words w-full">
-                Sudeep Prakash, Aruna Acharya, RK Yadav: Adequacy of Dialysis, Chapter 31, Page No.136, Introduction, Measures of Dialysis Adequacy, Urea Reduction Ratio (URR) and KT/V, (Jaypee Brothers Medical Publishers (P) Ltd.), 2024.
-              </li>
-              <li className="leading-relaxed break-words w-full">
-                Corresponding author
-              </li>
-            </ul>
-          </Section>
-          <Section title="Personal Statement">
-            <p className="text-gray-700 mb-4 whitespace-pre-line">
-              Tended to remain actively involved in academic, research and healthcare activities after joining as a teacher in AIIMS, New Delhi and Pt. B.D.S. PGIMS, Rohtak, including under graduate teaching i.e., MBBS, BDS, BSC nursing and post graduate teaching i.e., MD and DM. Supervision of post graduate students (MD and DM) for journal club, seminar, case presentation and group discussion. Always took keen interest in bed side teaching and guiding in dissertation work, article publication of post graduate students. Apart from it, organized multiple nephrology conferences in AIIMS, New Delhi as a team member.
+          <section>
+            <div className="w-full relative border-l-2 border-gray-300 pl-10">
+              <div className="mb-10 relative">
+                <div className="absolute w-3.5 h-3.5 bg-gray-300 rounded-full left-[-25px] top-2"></div>
+                <h2 className="text-2xl font-semibold mb-4">Personal Statement</h2>
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                  {PersonalStatement.map((item, idx) => (
+                    <li key={idx} className="leading-relaxed break-words w-full">{item}</li>
+                  ))}
+                </ul>
+              </div>
 
-              Finally for patients, it is my endeavor to deliver a reliable, responsible, transparent and ethical care to them who have entrusted their well-being in my hands.
-            </p>
-          </Section>
+            </div>
+          </section>
+
         </div>
       </div>
     </div>
