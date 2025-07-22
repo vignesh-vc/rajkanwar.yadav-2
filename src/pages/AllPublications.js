@@ -80,27 +80,39 @@ function linkify(text) {
       ? <a key={`url-${i}`} href={part} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline break-all">{part}</a>
       : part
   );
-  // Then, linkify PMID
+  // Then, linkify PMID (only one, no duplication, and as JSX)
   return parts.flatMap((part, i) => {
     if (typeof part === "string") {
-      return part.split(/(PMID:\s*\d+)/g).map((pmidPart, j) => {
-        const match = pmidPart.match(/PMID:\s*(\d+)/);
-        if (match) {
-          const pmid = match[1];
-          return (
-            <a
-              key={`pmid-${i}-${j}`}
-              href={`https://pubmed.ncbi.nlm.nih.gov/${pmid}/`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 underline break-all"
-            >
-              {pmidPart}
-            </a>
-          );
+      const pmidRegex = /PMID:\s*(\d+)/g;
+      const result = [];
+      let lastIndex = 0;
+      let match;
+      while ((match = pmidRegex.exec(part)) !== null) {
+        // Push text before PMID
+        if (match.index > lastIndex) {
+          result.push(part.slice(lastIndex, match.index));
         }
-        return pmidPart;
-      });
+        // Push "PMID: " label
+        result.push("PMID: ");
+        // Push the link for the number
+        result.push(
+          <a
+            key={`pmid-${i}-${match[1]}`}
+            href={`https://pubmed.ncbi.nlm.nih.gov/${match[1]}/`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline break-all"
+          >
+            {match[1]}
+          </a>
+        );
+        lastIndex = pmidRegex.lastIndex;
+      }
+      // Push any remaining text after the last PMID
+      if (lastIndex < part.length) {
+        result.push(part.slice(lastIndex));
+      }
+      return result;
     }
     return part;
   });

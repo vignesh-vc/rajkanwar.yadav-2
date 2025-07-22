@@ -11,6 +11,7 @@
     "axios": "^1.8.4",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.6.3",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.487.0",
     "pagedone": "^1.2.2",
     "react": "^19.1.0",

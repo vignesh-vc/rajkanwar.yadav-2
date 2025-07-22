@@ -67,8 +67,10 @@ const AllHonors = () => (
       <h1 className="text-3xl font-bold text-gray-800 mb-6">All Honors, Awards and Achievements</h1>
       <ul className="space-y-4">
         {sortedHonors.map((item, idx) => (
-          <li key={idx} className="p-4 border border-gray-300 rounded-lg shadow-sm bg-white">
-            <div className="text-base font-semibold text-gray-800">{item.title}</div>
+          <li
+          key={idx}
+          className="p-4 border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white"
+        >  <div className="text-base font-semibold text-gray-800">{item.title}</div>
           </li>
         ))}
       </ul>

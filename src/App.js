@@ -20,6 +20,7 @@ import CalendarView from "./components/CalendarView";
 import AllPublications from './pages/AllPublications';
 import Conference from './pages/Conference';
 import AllHonors from './pages/AllHonors';
+import Training from "./pages/Training";
 
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
         <Route path="/treatments" element={loading ? <Loader /> : <Treatments />} />
         <Route path="/treatment/:id" element={loading ? <Loader /> : <TreatmentDetail />} />
         <Route path="/" element={loading ? <Loader /> : <About />} />
+        <Route path="/about" element={loading ? <Loader /> : <About />} />
+        <Route path="/training" element={loading ? <Loader /> :<Training />} />
         <Route path="/blogs" element={loading ? <Loader /> : <Blogs />} />
         <Route path="/blog/:id" element={loading ? <Loader /> : <BlogDetail />} />
         <Route path="/articles" element={loading ? <Loader /> : <Articles />} />

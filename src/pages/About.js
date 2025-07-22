@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
-import profileImg from "../assests/Profile.png";
+import React, { useEffect, useState, useRef, forwardRef } from "react";
+import profileImg from "../assests/Yadav.jpg";
 import { FaLinkedin, FaFacebook, FaYoutube } from "react-icons/fa";
 import { conferences, presentations } from "./Conference";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useNavigate } from "react-router-dom";
+gsap.registerPlugin(ScrollTrigger);
 
 // Data
 const honorsAwards = [
@@ -124,14 +128,41 @@ const socialLinks = [
   { name: "Facebook", url: "https://www.facebook.com/rajkanwar.yadav/", icon: <FaFacebook className="text-2xl" /> },
 ];
 
+const nephrologyTrainingPoints = [
+  "Screening for kidney diseases",
+  "Evaluation and management of acute, acute-on-chronic and chronic renal failure patients",
+  "Evaluation and management of rapidly progressive renal failure patients",
+  "Management of patients with renal involvement in acute intensive care settings",
+  "Pre-transplant evaluation of renal transplant recipients and donors",
+  "Immediate and long-term management of patients post renal transplantation",
+  "Evaluation of patients for deceased donor renal transplantation ",
+  "Interventions in form of femoral/jugular/subclavian tunneled and non-tunneled catheterization for hemodialysis",
+  "Interventions in form of creation of radio-cehalicAVF",
+  "Insertion acute peritoneal dialysis catheters and management of patients on acute PD ",
+  "Insertion soft peritoneal dialysis catheters and management of patients on CAPD",
+  "Highest exposure in terms of all aspects of nephrology",
+  "Twice weekly Nephrology OPD",
+  "Twice weekly post renal transplant care OPD ",
+  "About 1000 femoral catheterizations performed",
+  "About 500 jugular catheterizations performed",
+  "About 50 AVF created",
+  "About 50 Acute PD catheterizations performed",
+  "About 20 CAPD catheterizations performed",
+  "About 200 renal (native and allograft) biopsies performed",
+  "Exposure to highest number of transplantations- 600 including live and deceased donor transplantations",
+  "Managing a Nephrology ICU "
+];
+
+const nephrologyTrainingIntro = `I trained in Department of Nephrology at All India Institute Medical Sciences, New Delhi, a 2500 bedded super-specialty hospital, catering to the whole Nation and adjoining neighboring countries like Pakistan, Nepal, Afghanistan and Bangladesh, is truly one of its kind in the Asia.\nTraining at AIIMS has provided me with an unmatched clinical exposure in all aspects of nephrology. The tremendous patient load has rendered me competent and confident in dealing with all kinds of patients. Some aspects of my clinical experience are summarized here:`;
+
 // Section rendering helper
-const Section = ({ title, children }) => (
-  <div className="mb-6 relative">
+export const Section = forwardRef(({ title, children }, ref) => (
+  <div ref={ref} className="mb-6 relative">
     <div className="absolute w-3.5 h-3.5 bg-gray-300 rounded-full left-[-25px] top-2"></div>
     <h2 className="text-3xl font-bold text-gray-800">{title}</h2>
     {children}
   </div>
-);
+));
 
 // 1. Add a helper to extract year and sort publications
 function extractYear(pub) {
@@ -159,27 +190,39 @@ function linkify(text) {
       ? <a key={`url-${i}`} href={part} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline break-all">{part}</a>
       : part
   );
-  // Then, linkify PMID
+  // Then, linkify PMID (only one, no duplication, and as JSX)
   return parts.flatMap((part, i) => {
     if (typeof part === "string") {
-      return part.split(/(PMID:\s*\d+)/g).map((pmidPart, j) => {
-        const match = pmidPart.match(/PMID:\s*(\d+)/);
-        if (match) {
-          const pmid = match[1];
-          return (
-            <a
-              key={`pmid-${i}-${j}`}
-              href={`https://pubmed.ncbi.nlm.nih.gov/${pmid}/`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 underline break-all"
-            >
-              {pmidPart}
-            </a>
-          );
+      const pmidRegex = /PMID:\s*(\d+)/g;
+      const result = [];
+      let lastIndex = 0;
+      let match;
+      while ((match = pmidRegex.exec(part)) !== null) {
+        // Push text before PMID
+        if (match.index > lastIndex) {
+          result.push(part.slice(lastIndex, match.index));
         }
-        return pmidPart;
-      });
+        // Push "PMID: " label
+        result.push("PMID: ");
+        // Push the link for the number
+        result.push(
+          <a
+            key={`pmid-${i}-${match[1]}`}
+            href={`https://pubmed.ncbi.nlm.nih.gov/${match[1]}/`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 underline break-all"
+          >
+            {match[1]}
+          </a>
+        );
+        lastIndex = pmidRegex.lastIndex;
+      }
+      // Push any remaining text after the last PMID
+      if (lastIndex < part.length) {
+        result.push(part.slice(lastIndex));
+      }
+      return result;
     }
     return part;
   });
@@ -187,9 +230,42 @@ function linkify(text) {
 
 const About = () => {
   const [visibleHonors, setVisibleHonors] = useState(10);
+  const trainingSectionRef = useRef(null);
+  const trainingButtonRef = useRef(null);
+  const sectionRefs = useRef([]);
+  sectionRefs.current = [];
+  const addToRefs = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Animate each section on scroll
+    sectionRefs.current.forEach((el) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    });
+    if (trainingSectionRef.current) {
+      gsap.from(trainingSectionRef.current, { opacity: 0, y: 40, duration: 1 });
+    }
+    if (trainingButtonRef.current) {
+      gsap.from(trainingButtonRef.current, { opacity: 0, scale: 0.8, duration: 0.8, delay: 0.5 });
+    }
   }, []);
 
   return (
@@ -336,47 +412,66 @@ const About = () => {
           {/* Work Experience Section */}
           <section>
             <div className="w-full relative border-l-2 border-gray-300 pl-10">
-              <Section title="Teaching Experience">
+              <Section ref={addToRefs} title="Teaching Experience">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {defaultExperience.map((item, index) => (
                     <li key={index} className="leading-relaxed break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
-              <Section title="Affiliations and Membership">
+              <Section ref={addToRefs} title="Affiliations and Membership">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {(additionalExperience["Affiliations and Memberships"] || []).map((item, index) => (
                     <li key={index} className="leading-relaxed break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
-              <Section title="PG Thesis">
+              <Section ref={addToRefs} title="PG Thesis">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {(additionalExperience["Post Graduate Thesis:"] || []).map((item, index) => (
                     <li key={index} className="leading-relaxed break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
-              <Section title="Organizational Skills & Social Work">
+              <Section ref={addToRefs} title="Organizational Skills & Social Work">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {(additionalExperience["Organizational skills and social work"] || []).map((item, index) => (
                     <li key={index} className="leading-relaxed break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
-              <Section title="Recent Clinical Trials">
+              <Section ref={addToRefs} title="Nephrology Training">
+                <p className="text-gray-700 mb-4 whitespace-pre-line">
+                  I trained in Department of Nephrology at All India Institute Medical Sciences, New Delhi, a 2500 bedded super-specialty hospital, catering to the whole Nation and adjoining neighboring countries like Pakistan, Nepal, Afghanistan and Bangladesh, is truly one of its kind in the Asia.
+                  Training at AIIMS has provided me with an unmatched clinical exposure in all aspects of nephrology. The tremendous patient load has rendered me competent and confident in dealing with all kinds of patients. Some aspects of my clinical experience are summarized here:
+                </p>
+                <ul className="list-disc pl-5">
+                  {nephrologyTrainingPoints.slice(0, 5).map((point, idx) => (
+                    <li key={idx}>{point}</li>
+                  ))}
+                </ul>
+                <button
+                  onClick={() => window.location.href = '/training'}
+                  className="mt-2 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition w-full sm:w-auto">
+                  All Training
+                </button>
+              </Section>
+
+              <Section ref={addToRefs} title="Recent Clinical Trials">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   <li className="text-gray-600 leading-relaxed">
                     As Open-label, Randomized, Parallel-group, Two Arm Clinical Study to Evaluate the anti-inflammatory effect of ferronemia (lactoferrin + disodium guanosine monophosphate) tablet + Conservative Chronic Kidney Disease Management Therapy versus Conservative Chronic Kidney Disease Management Therapy in the Subjects with Chronic Kidney Disease.<br />
-                    <b>Principal Investigator</b>, Jul 2022 - Mar 2023, Trial ID: CTRI/2022/07/044200
+                    <b>Principal Investigator</b>, Jul 2022 - Mar 2023, Trial ID: 
+                    <a href="https://ctri.nic.in/Clinicaltrials/pmaindet2.php?EncHid=NzE1MjE=&Enc=&userName=" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">CTRI/2022/07/044200</a>
                   </li>
                   <li className="text-gray-600 leading-relaxed">
                     Pattern of CYP3A5 and MDR-1 single nucleotide polymorphism and its Impact on Individualization of Tacrolimus based Immunosuppression in Living Renal Allograft recipient.<br />
-                    <b>Principal Investigator</b>, Mar 2017 - Mar 2017, Trial ID: CTRI/2017/03/007997
+                    <b>Principal Investigator</b>, Mar 2017 - Mar 2017, Trial ID: 
+                    <a href="https://ctri.nic.in/Clinicaltrials/pmaindet2.php?EncHid=MTYyNTc=&Enc=&userName=" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">CTRI/2017/03/007997</a>
                   </li>
                 </ul>
               </Section>
-              <Section title="Recent Conferences">
+              <Section ref={addToRefs} title="Recent Conferences">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {getRecentByYear(conferences).map((conf, idx) => (
                     <li key={idx} className="leading-relaxed break-words w-full">{linkify(conf)}</li>
@@ -389,7 +484,7 @@ const About = () => {
                   All Conferences
                 </button>
               </Section>
-              <Section title="Recent Presentations">
+              <Section ref={addToRefs} title="Recent Presentations">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {getRecentByYear(presentations).map((pres, idx) => (
                     <li key={idx} className="leading-relaxed break-words w-full">{linkify(pres)}</li>
@@ -402,7 +497,7 @@ const About = () => {
                   All Presentations
                 </button>
               </Section>
-              <Section title="Recent Publications">
+              <Section ref={addToRefs} title="Recent Publications">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {sortedRecentPublications.map((item, index) => (
                     <li key={index} className="leading-relaxed break-words w-full">{linkify(item)}</li>
@@ -417,6 +512,97 @@ const About = () => {
               </Section>
             </div>
           </section>
+          <Section title="Abstracts">
+            <div className="overflow-x-auto">
+              <table className="min-w-full border border-gray-300 text-sm">
+                <thead className="bg-gray-200">
+                  <tr>
+                    <th className="p-2 border">S. No.</th>
+                    <th className="p-2 border">Authors</th>
+                    <th className="p-2 border">Title/Abstract</th>
+                    <th className="p-2 border">Conference</th>
+                    <th className="p-2 border">Date</th>
+                    <th className="p-2 border">Location</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="p-2 border">1</td>
+                    <td className="p-2 border">MS Gupta, RK Yadav</td>
+                    <td className="p-2 border">Glucose tolerance in non-diabetic patients with acute myocardial infarction- A short term follows up study</td>
+                    <td className="p-2 border">56th Annual Conference of Cardiological Society of India</td>
+                    <td className="p-2 border">2-5 December, 2004</td>
+                    <td className="p-2 border">Karnataka, Bangalore</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2 border">2</td>
+                    <td className="p-2 border">MS Gupta, Manish Singhal, Vijay Shanker, RK Yadav, A Kaushal</td>
+                    <td className="p-2 border">Ezetimibe as an Adjunct to Atorvastatin in Patients of Dyslipidemia</td>
+                    <td className="p-2 border">57th Annual Conference of Cardiological Society of India & 15th Asian Pacific Congress of Cardiology</td>
+                    <td className="p-2 border">December 1-4, 2005</td>
+                    <td className="p-2 border">Mumbai, India</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2 border">3</td>
+                    <td className="p-2 border">Yadav RK, Agarwal SK, Bhowmik D, Mahajan S, Bagchi S</td>
+                    <td className="p-2 border">Outcome of primary focal segmental glomerular sclerosis (FSGS)after renal transplantation in adult</td>
+                    <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
+                    <td className="p-2 border">16 Dec, 2017</td>
+                    <td className="p-2 border">New Delhi</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2 border">4</td>
+                    <td className="p-2 border">Bagchi S, Singh G, Bhowmik D, Mahajan S, Yadav RK, Barwad A, Dinda A, Agarwal SK</td>
+                    <td className="p-2 border">Borderline cellular rejection: Clinical co-relates and impact on graft outcome</td>
+                    <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
+                    <td className="p-2 border">15 Dec, 2017</td>
+                    <td className="p-2 border">New Delhi</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2 border">5</td>
+                    <td className="p-2 border">Behera V, Bagchi S, Yadav RK, Mahajan S, Bhowmik D, Agarwal SK</td>
+                    <td className="p-2 border">Rituximab treatment of adults patients with resistant primary focal segmental glomerulosclerosis</td>
+                    <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
+                    <td className="p-2 border">16 Dec, 2017</td>
+                    <td className="p-2 border">New Delhi</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2 border">6</td>
+                    <td className="p-2 border">Mangalgi S, Bagchi S, Madan K, Das CJ, Singh G, Yadav RK, Xess I, Singh S, Agarwal SK</td>
+                    <td className="p-2 border">Profile of pulmonary infections in renal transplant recipients in a tertiary care centre</td>
+                    <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
+                    <td className="p-2 border">15 Dec, 2017</td>
+                    <td className="p-2 border">New Delhi</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2 border">7</td>
+                    <td className="p-2 border">Behera V, Yadav RK, Bhowmik D, Kapil A, Kumar A, Bagchi S, Mahajan S, Agarwal SK</td>
+                    <td className="p-2 border">Prospective study of Clinical Profile, Outcomes and survival of Temporary femoral hemodialysis catheters</td>
+                    <td className="p-2 border">49th Annual conference of Indian society of Nephrology</td>
+                    <td className="p-2 border">22 Dec 2018</td>
+                    <td className="p-2 border">Bhubaneswar</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2 border">8</td>
+                    <td className="p-2 border">Philip Nishita Mohan, Bhowmik D, Mahajan S, Bagchi S, Yadav RK, Arun Kumar, Agarwal SK</td>
+                    <td className="p-2 border">Post Renal Transplant Malignancy in India-Single center experience</td>
+                    <td className="p-2 border">49th Annual conference of Indian society of Nephrology</td>
+                    <td className="p-2 border">22 Dec 2018</td>
+                    <td className="p-2 border">Bhubaneswar</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2 border">9</td>
+                    <td className="p-2 border">Yadav RK</td>
+                    <td className="p-2 border">Clinico Microbiological Profile and Outcomes of Central Catheter Related Blood stream infections in Hemodialysis: A Single Centre Study</td>
+                    <td className="p-2 border">ISN WCN 2019</td>
+                    <td className="p-2 border">14 April, 2019</td>
+                    <td className="p-2 border">Melbourne, Australia</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </Section>
+
           {/* Honors, Awards, Publications, Clinical Trials */}
           <section>
             <div className="w-full relative border-l-2 border-gray-300 pl-10">
@@ -430,7 +616,7 @@ const About = () => {
                       {item.year && <p className="text-gray-600">{item.year}</p>}
                     </div>
                   ))}
-                  
+
                 </div>
               </div>
               <button
@@ -441,6 +627,9 @@ const About = () => {
               </button>
             </div>
           </section>
+
+
+
           <Section title="Chapter in Book">
             <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
               <li className="leading-relaxed break-words w-full">
@@ -468,6 +657,13 @@ const About = () => {
                 Corresponding author
               </li>
             </ul>
+          </Section>
+          <Section title="Personal Statement">
+            <p className="text-gray-700 mb-4 whitespace-pre-line">
+              Tended to remain actively involved in academic, research and healthcare activities after joining as a teacher in AIIMS, New Delhi and Pt. B.D.S. PGIMS, Rohtak, including under graduate teaching i.e., MBBS, BDS, BSC nursing and post graduate teaching i.e., MD and DM. Supervision of post graduate students (MD and DM) for journal club, seminar, case presentation and group discussion. Always took keen interest in bed side teaching and guiding in dissertation work, article publication of post graduate students. Apart from it, organized multiple nephrology conferences in AIIMS, New Delhi as a team member.
+
+              Finally for patients, it is my endeavor to deliver a reliable, responsible, transparent and ethical care to them who have entrusted their well-being in my hands.
+            </p>
           </Section>
         </div>
       </div>

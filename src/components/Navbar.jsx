@@ -25,7 +25,7 @@ const Navbar = () => {
             alt="Logo"
             className=" object-contain" // Smaller size for mobile
           /> */}
-           <span className="text-[25px] font-bold text-gray-900">Dr. Raj Kanwar Yadav</span>
+           <span className="text-[20px] font-bold text-gray-900">Dr. Raj Kanwar Yadav</span>
         </Link>
 
         {/* Mobile Menu Button (Hamburger) */}
@@ -50,7 +50,7 @@ const Navbar = () => {
           </button>
 
           <ul className="space-y-4 mt-10">
-            {["Home","Conference","Publications","Honors"].map((item, index) => (
+            {["Home","Conference","Publications","Training","Honors"].map((item, index) => (
               <li key={index}>
                 <Link
                    to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "")}`}
@@ -67,7 +67,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex lg:items-center lg:ml-auto lg:gap-x-5">
-          {["Home","Conference","Publications","Honors"].map((item, index) => (
+          {["Home","Conference","Publications","Training","Honors"].map((item, index) => (
             <Link
               key={index}
               to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "")}`}
