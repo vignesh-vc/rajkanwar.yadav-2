@@ -285,25 +285,25 @@ const About = () => {
     <div className="min-h-screen bg-gray-50 px-2 sm:px-4 md:px-8 py-6 flex flex-col items-center">
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-[400px,1fr] gap-8">
         {/* Left Column */}
-        <div className="flex flex-col gap-6 items-center md:items-start md:sticky md:top-20 md:self-start h-fit p-5 bg-gray-200 md:bg-gray-300 w-full rounded-xl">
+        <div className="flex flex-col gap-4 items-center md:items-start md:sticky md:top-20 md:self-start h-fit p-3 bg-gray-200 md:bg-gray-300 w-full rounded-xl">
           {/* Profile Image */}
           <img
             src={profileImg}
             alt="Dr. Raj Kanwar Yadav"
-            className="w-32 h-32 sm:w-24 sm:h-24 md:w-48 md:h-48 object-cover rounded-full shadow-lg border-4 border-gray-300 mb-2 mx-auto bg-white"
+            className="w-24 h-24 sm:w-20 sm:h-20 md:w-36 md:h-36 object-cover rounded-full shadow-lg border-4 border-gray-300 mb-2 mx-auto bg-white"
           />
           {/* Contact Info */}
-          <section className="bg-white rounded-xl shadow p-4 w-full">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Contact Information</h3>
-            <p className="text-gray-600 text-sm whitespace-pre-line">
+          <section className="bg-white rounded-xl shadow p-3 w-full">
+            <h3 className="text-base font-semibold text-gray-800 mb-2">Contact Information</h3>
+            <p className="text-gray-600 text-xs whitespace-pre-line">
               Room no 4088, Teaching Block,
               Department of Nephrology
               AIIMS, New Delhi – 110029
             </p>
-            <ul className="flex pt-3 gap-3">
+            <ul className="flex pt-2 gap-2">
               {socialLinks.map((link, idx) => (
                 <li key={idx}>
-                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-700 text-sm flex items-center gap-1 hover:text-black">
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-700 text-xs flex items-center gap-1 hover:text-black">
                     {link.icon}
                     <span className="sr-only">{link.name}</span>
                   </a>
@@ -312,47 +312,47 @@ const About = () => {
             </ul>
           </section>
           {/* Research Interests */}
-          <section className="bg-white rounded-xl shadow p-4 w-full">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Clinical/Research Interests</h3>
-            <ul className="list-disc pl-5 text-gray-700 text-sm">
+          <section className="bg-white rounded-xl shadow p-3 w-full">
+            <h3 className="text-base font-semibold text-gray-800 mb-2">Clinical/Research Interests</h3>
+            <ul className="list-disc pl-4 text-gray-700 text-xs">
               {researchInterests.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
             </ul>
           </section>
           {/* Specialty */}
-          <section className="bg-white rounded-xl shadow p-4 w-full">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Specialty</h3>
-            <p className="text-gray-700 text-sm">{specialty}</p>
+          <section className="bg-white rounded-xl shadow p-3 w-full">
+            <h3 className="text-base font-semibold text-gray-800 mb-2">Specialty</h3>
+            <p className="text-gray-700 text-xs">{specialty}</p>
           </section>
           {/* Social Links */}
-          <section className="bg-white rounded-xl shadow p-4 w-full">
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">Social media presentation/Interviews</h3>
+          <section className="bg-white rounded-xl shadow p-3 w-full">
+            <h3 className="text-base font-semibold text-gray-800 mb-2">Social media presentation/Interviews</h3>
             <a
               href="https://www.youtube.com/watch?v=P46IHWnac8c"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold text-md"
+              className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold text-xs"
             >
-              <FaYoutube className="text-2xl" />
-              Post Vaccination : Care and Misconception Part-1
+              <FaYoutube className="text-lg" />
+              Care and Misconception Part-1
             </a>
             <a
               href="https://www.youtube.com/watch?v=-1h6bbxvWyM"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold text-md mt-2"
+              className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold text-xs mt-2"
             >
-              <FaYoutube className="text-2xl" />
+              <FaYoutube className="text-lg" />
               Armaanon ki Udaan
             </a>
             <a
               href="https://www.youtube.com/watch?v=93kjWZKpkb0"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold text-md mt-2"
+              className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold text-xs mt-2"
             >
-              <FaYoutube className="text-2xl" />
+              <FaYoutube className="text-lg" />
               Dr R K Yadav - Nephrologist
             </a>
           </section>
@@ -360,15 +360,22 @@ const About = () => {
         {/* Right Column */}
         <div className="flex flex-col gap-10 min-w-0 pl-4 w-full flex-1">
           {/* Doctor Info */}
-          <section>
-            <div className="w-full relative border-l-2 border-gray-300 pl-10">
-              {/* Header */}
-              <div className="mb-8 relative">
-                <div className="absolute w-3.5 h-3.5 bg-gray-300 rounded-full left-[-25px] top-2"></div>
+          {/* Header */}
+          <section className="sticky top-[70px] bg-gray-300 z-10">
+            <div className="w-full  relative border-l-2 border-gray-300 pl-10">
+
+              <div className="mb-6  relative pt-[20px] ">
                 <h1 className="text-3xl font-bold text-gray-800">Dr. Raj Kanwar Yadav</h1>
                 <p className="text-gray-500 text-lg">M.B.B.S, M.D. (Medicine), D.M. (Nephrology)</p>
                 <p className="text-gray-500 text-lg">Department of Nephrology, AIIMS- New Delhi</p>
               </div>
+            </div>
+          </section>
+
+          <section>
+            <div className="w-full  relative border-l-2 border-gray-300 pl-10">
+
+
               {/* Bio-Sketch */}
               <div className="mb-10 relative">
                 <div className="absolute w-3.5 h-3.5 bg-gray-300 rounded-full left-[-25px] top-2"></div>
