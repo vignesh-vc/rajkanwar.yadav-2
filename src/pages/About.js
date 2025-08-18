@@ -363,7 +363,7 @@ const About = () => {
               </span>
             </div>
 
-            <ul className="flex items-start gap-2 pl-5">
+            <ul className="flex items-start  gap-2 pl-5">
               {socialLinks.map((link, idx) => (
                 <li key={idx}>
                   <a
@@ -380,7 +380,7 @@ const About = () => {
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full my-1">
+          <div className="flex items-center w-full mt-[-10px] my-2">
             <hr className="flex-grow border-t border-gray-400" />
             <span className="px-1 text-gray-500 text-[10px]">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
@@ -391,7 +391,7 @@ const About = () => {
             <h3 className="font-bold text-gray-800 mb-1">Clinical/Research Interests</h3>
             <ul className="space-y-0.5">
               {researchInterests.map((item, idx) => (
-                <li key={idx} className="flex items-center gap-1">
+                <li key={idx} className="flex items-center  gap-1">
                   <span className="text-gray-600">★</span>
                   <span className="text-gray-700">{item}</span>
                 </li>
@@ -400,20 +400,20 @@ const About = () => {
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full my-1">
+          <div className="flex items-center w-full  mt-[-10px] my-1">
             <hr className="flex-grow border-t border-gray-400" />
             <span className="px-1 text-gray-500 text-[10px]">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
           </div>
 
           {/* Specialty */}
-          <section className="w-full text-[12px] mb-2">
-            <h3 className="font-bold text-gray-800 mb-1">Specialty</h3>
+          <section className="w-full text-[12px] mb-0">
+            <h3 className="font-bold text-gray-800 mb-0">Specialty</h3>
             <p className="text-gray-700">{specialty}</p>
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full mb-[-5px">
+          <div className="flex items-center w-full  mt-[-8px] my-1">
             <hr className="flex-grow border-t border-gray-400" />
             <span className="px-1 text-gray-500 text-[10px]">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
