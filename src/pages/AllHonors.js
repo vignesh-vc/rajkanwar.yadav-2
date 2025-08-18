@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { FaArrowUp } from "react-icons/fa";
 
 const honorsAwards = [
   { title: "Certificate of Participation as a Delegate in the CME/Chairperson PD College-Reinvigorating a Wonderful Treatment Modality held on 18th August 2024." },
@@ -61,27 +62,60 @@ function extractYear(item) {
 
 const sortedHonors = [...honorsAwards].sort((a, b) => extractYear(b) - extractYear(a));
 
-const AllHonors = () => (
-  <div className="min-h-screen bg-white px-4 py-8 flex flex-col items-center">
-    <div className="w-full max-w-3xl">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">All Honors, Awards and Achievements</h1>
-      <ul className="space-y-4">
-        {sortedHonors.map((item, idx) => (
-          <li
-          key={idx}
-          className="p-4 border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white"
-        >  <div className="text-base font-semibold text-gray-800">{item.title}</div>
-          </li>
-        ))}
-      </ul>
-      <button
-        onClick={() => window.location.href = '/'}
-        className="mt-8 px-4 py-2 bg-[#00CC99] text-white rounded shadow hover:bg-[#009977] transition"
-      >
-        Back to Home
-      </button>
+const AllHonors = () => {
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollToTop(true);
+      } else {
+        setShowScrollToTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-white px-4 py-8 flex flex-col items-center">
+      <div className="w-full max-w-3xl">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">All Honors, Awards and Achievements</h1>
+        <ul className="space-y-4">
+          {sortedHonors.map((item, idx) => (
+            <li
+            key={idx}
+            className="p-4 border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white"
+          >  <div className="text-base font-semibold text-gray-800">{item.title}</div>
+            </li>
+          ))}
+        </ul>
+        <button
+          onClick={() => window.location.href = '/'}
+          className="mt-8 px-4 py-2 bg-[#00CC99] text-white rounded shadow hover:bg-[#009977] transition"
+        >
+          Back to Home
+        </button>
+      </div>
+             {showScrollToTop && (
+         <button
+           onClick={scrollToTop}
+           className="fixed bottom-6 right-6 bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50 hover:scale-110"
+           aria-label="Scroll to top"
+         >
+           <FaArrowUp className="text-xl" />
+         </button>
+       )}
     </div>
-  </div>
-);
+  );
+};
 
 export default AllHonors; 

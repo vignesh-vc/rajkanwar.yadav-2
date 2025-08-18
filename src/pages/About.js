@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, forwardRef } from "react";
 import profileImg from "../assests/Yadav.jpg";
-import { FaLinkedin, FaFacebook, FaYoutube } from "react-icons/fa";
+import { FaLinkedin, FaFacebook, FaYoutube, FaArrowUp } from "react-icons/fa";
 import { conferences, presentations } from "./Conference";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -171,7 +171,16 @@ const nephrologyTrainingIntro = `I trained in Department of Nephrology at All In
 // Section rendering helper
 export const Section = forwardRef(({ title, children }, ref) => (
   <div ref={ref} className="mb-6 relative">
-    <div className="absolute w-3.5 h-3.5 bg-gray-300 rounded-full left-[-25px] top-2"></div>
+    {/* star (14px) absolute positioned like your circle */}
+    <svg
+      className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
+    </svg>
+
     <h2 className="text-3xl font-bold text-gray-800">{title}</h2>
     {children}
   </div>
@@ -243,6 +252,7 @@ function linkify(text) {
 
 const About = () => {
   const [visibleHonors, setVisibleHonors] = useState(10);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const trainingSectionRef = useRef(null);
   const trainingButtonRef = useRef(null);
   const sectionRefs = useRef([]);
@@ -254,8 +264,28 @@ const About = () => {
   };
   const navigate = useNavigate();
 
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  // Handle scroll event
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setShowScrollTop(true);
+    } else {
+      setShowScrollTop(false);
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
     // Animate each section on scroll
     sectionRefs.current.forEach((el) => {
       gsap.fromTo(
@@ -279,98 +309,140 @@ const About = () => {
     if (trainingButtonRef.current) {
       gsap.from(trainingButtonRef.current, { opacity: 0, scale: 0.8, duration: 0.8, delay: 0.5 });
     }
+
+    // Cleanup scroll event listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 px-2 sm:px-4 md:px-8 py-6 flex flex-col items-center">
-      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-[400px,1fr] gap-8">
+    <div className="min-h-screen px-2 sm:px-4 md:px-8 py-6 flex flex-col items-center">
+      <div className="w-full  max-w-7xl grid grid-cols-1 md:grid-cols-[400px,1fr] gap-8">
         {/* Left Column */}
-        <div className="flex flex-col gap-4 items-center md:items-start md:sticky md:top-20 md:self-start h-fit p-3 bg-gray-200 md:bg-gray-300 w-full rounded-xl">
+        <div className="flex flex-col items-center md:items-start md:sticky md:top-20 md:self-start h-fit p-5 bg-gray-100 w-full text-center md:text-left border-r border-gray-300">
           {/* Profile Image */}
           <img
             src={profileImg}
             alt="Dr. Raj Kanwar Yadav"
-            className="w-24 h-24 sm:w-20 sm:h-20 md:w-36 md:h-36 object-cover rounded-full shadow-lg border-4 border-gray-300 mb-2 mx-auto bg-white"
+            className="w-40 h-40 object-cover rounded-full shadow-md border-2 border-gray-400 mb-4"
           />
+
+          {/* Name + Designation */}
+          <h2 className="text-xl font-bold text-gray-900">Dr. Raj Kanwar Yadav</h2>
+          <p className="text-sm text-gray-600 font-medium">
+            <br /> (M.B.B.S, M.D. (Medicine), D.M. (Nephrology)) <br />Department of Nephrology, AIIMS- New Delhi
+          </p>
+
+          {/* Divider */}
+          <div className="flex items-center w-full my-3">
+            <hr className="flex-grow border-t border-gray-400" />
+            <span className="px-2 text-gray-500">✦</span>
+            <hr className="flex-grow border-t border-gray-400" />
+          </div>
+
           {/* Contact Info */}
-          <section className="bg-white rounded-xl shadow p-3 w-full">
-            <h3 className="text-base font-semibold text-gray-800 mb-2">Contact Information</h3>
-            <p className="text-gray-600 text-xs whitespace-pre-line">
-              Room no 4088, Teaching Block,
-              Department of Nephrology
-              AIIMS, New Delhi – 110029
-            </p>
-            <ul className="flex pt-2 gap-2">
-              {socialLinks.map((link, idx) => (
-                <li key={idx}>
-                  <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-700 text-xs flex items-center gap-1 hover:text-black">
-                    {link.icon}
-                    <span className="sr-only">{link.name}</span>
-                  </a>
+          <section className="w-full text-sm space-y-2 mb-4">
+            {/* <div className="flex items-center gap-2 text-gray-700">
+              <span>📞</span> <span>(011) 456-7890</span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-700">
+              <span>✉️</span> <span>raj.yadav@aiims.edu</span>
+            </div> */}
+            <div className="flex items-center gap-2 text-gray-700">
+              <span>📍</span>
+              <span>
+                Room no 4088, Teaching Block,<br />
+                Department of Nephrology, AIIMS, New Delhi – 110029
+              </span>
+            </div>
+          </section>
+
+          {/* Divider */}
+          <div className="flex items-center w-full my-3">
+            <hr className="flex-grow border-t border-gray-400" />
+            <span className="px-2 text-gray-500">✦</span>
+            <hr className="flex-grow border-t border-gray-400" />
+          </div>
+
+          {/* Clinical/Research Interests */}
+          <section className="w-full text-sm mb-4">
+            <h3 className="font-bold text-gray-800 mb-2">Clinical/Research Interests</h3>
+            <ul className="space-y-1">
+              {researchInterests.map((item, idx) => (
+                <li key={idx} className="flex items-center gap-2">
+                  <span className="text-gray-600">★</span>
+                  <span className="text-gray-700">{item}</span>
                 </li>
               ))}
             </ul>
           </section>
-          {/* Research Interests */}
-          <section className="bg-white rounded-xl shadow p-3 w-full">
-            <h3 className="text-base font-semibold text-gray-800 mb-2">Clinical/Research Interests</h3>
-            <ul className="list-disc pl-4 text-gray-700 text-xs">
-              {researchInterests.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
+
+          {/* Divider */}
+          <div className="flex items-center w-full my-3">
+            <hr className="flex-grow border-t border-gray-400" />
+            <span className="px-2 text-gray-500">✦</span>
+            <hr className="flex-grow border-t border-gray-400" />
+          </div>
+
+          {/* Specialty */}
+          <section className="w-full text-sm mb-4">
+            <h3 className="font-bold text-gray-800 mb-2">Specialty</h3>
+            <p className="text-gray-700">{specialty}</p>
+          </section>
+
+          {/* Divider */}
+          <div className="flex items-center w-full my-3">
+            <hr className="flex-grow border-t border-gray-400" />
+            <span className="px-2 text-gray-500">✦</span>
+            <hr className="flex-grow border-t border-gray-400" />
+          </div>
+
+          {/* Social Media Links */}
+          <section className="w-full text-sm">
+            <h3 className="font-bold text-gray-800 mb-2">Social Media Presentations / Interviews</h3>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=P46IHWnac8c"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-blue-600 hover:underline"
+                >
+                  <FaYoutube className="text-red-600 text-lg" />
+                  Care and Misconception Part-1
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=-1h6bbxvWyM"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-blue-600 hover:underline"
+                >
+                  <FaYoutube className="text-red-600 text-lg" />
+                  Armaanon ki Udaan
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=93kjWZKpkb0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-blue-600 hover:underline"
+                >
+                  <FaYoutube className="text-red-600 text-lg" />
+                  Dr R K Yadav - Nephrologist
+                </a>
+              </li>
             </ul>
           </section>
-          {/* Specialty */}
-          <section className="bg-white rounded-xl shadow p-3 w-full">
-            <h3 className="text-base font-semibold text-gray-800 mb-2">Specialty</h3>
-            <p className="text-gray-700 text-xs">{specialty}</p>
-          </section>
-          {/* Social Links */}
-          <section className="bg-white rounded-xl shadow p-3 w-full">
-            <h3 className="text-base font-semibold text-gray-800 mb-2">Social media presentation/Interviews</h3>
-            <a
-              href="https://www.youtube.com/watch?v=P46IHWnac8c"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold text-xs"
-            >
-              <FaYoutube className="text-lg" />
-              Care and Misconception Part-1
-            </a>
-            <a
-              href="https://www.youtube.com/watch?v=-1h6bbxvWyM"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold text-xs mt-2"
-            >
-              <FaYoutube className="text-lg" />
-              Armaanon ki Udaan
-            </a>
-            <a
-              href="https://www.youtube.com/watch?v=93kjWZKpkb0"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold text-xs mt-2"
-            >
-              <FaYoutube className="text-lg" />
-              Dr R K Yadav - Nephrologist
-            </a>
-          </section>
         </div>
+
         {/* Right Column */}
         <div className="flex flex-col gap-10 min-w-0 pl-4 w-full flex-1">
           {/* Doctor Info */}
-          {/* Header */}
-          <section className="sticky top-[70px] bg-gray-300 z-10">
-            <div className="w-full  relative border-l-2 border-gray-300 pl-10">
 
-              <div className="mb-6  relative pt-[20px] ">
-                <h1 className="text-3xl font-bold text-gray-800">Dr. Raj Kanwar Yadav</h1>
-                <p className="text-gray-500 text-lg">M.B.B.S, M.D. (Medicine), D.M. (Nephrology)</p>
-                <p className="text-gray-500 text-lg">Department of Nephrology, AIIMS- New Delhi</p>
-              </div>
-            </div>
-          </section>
 
           <section>
             <div className="w-full  relative border-l-2 border-gray-300 pl-10">
@@ -378,9 +450,18 @@ const About = () => {
 
               {/* Bio-Sketch */}
               <div className="mb-10 relative">
-                <div className="absolute w-3.5 h-3.5 bg-gray-300 rounded-full left-[-25px] top-2"></div>
+                {/* star (14px) absolute positioned like your circle */}
+                <svg
+                  className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+
                 <h2 className="text-2xl font-semibold mb-2">Bio-Sketch</h2>
-                <ul className="list-disc pl-6 mt-4 space-y-2">
+                <ul className=" pl-6 mt-4 space-y-2">
                   <li className="text-gray-600 leading-relaxed">
                     Dr. Raj Kanwar Yadav is a distinguished nephrologist and academician with over two decades of experience in internal medicine and nephrology. He completed his MBBS from Jawaharlal Nehru Medical College, Ajmer, followed by an MD in General Medicine from PGIMS, Rohtak, and a DM in Nephrology from the prestigious AIIMS, New Delhi. </li>
                   <li className="text-gray-600 leading-relaxed">
@@ -401,7 +482,16 @@ const About = () => {
               </div>
               {/* Education */}
               <div className="mb-10 relative">
-                <div className="absolute w-3.5 h-3.5 bg-gray-300 rounded-full left-[-25px] top-2"></div>
+                {/* star (14px) absolute positioned like your circle */}
+                <svg
+                  className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+
                 <h2 className="text-2xl font-semibold mb-4">Education</h2>
                 <div className="space-y-6">
                   <div>
@@ -517,6 +607,8 @@ const About = () => {
                   All Presentations
                 </button>
               </Section>
+
+
               <Section ref={addToRefs} title="Recent Publications">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {sortedRecentPublications.map((item, index) => (
@@ -530,6 +622,7 @@ const About = () => {
                   All Publications
                 </button>
               </Section>
+
             </div>
           </section>
           <Section title="Abstracts">
@@ -627,7 +720,15 @@ const About = () => {
           <section>
             <div className="w-full relative border-l-2 border-gray-300 pl-10">
               <div className="mb-10 relative">
-                <div className="absolute w-3.5 h-3.5 bg-gray-300 rounded-full left-[-25px] top-2"></div>
+                {/* star (14px) absolute positioned like your circle */}
+                <svg
+                  className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
                 <h2 className="text-2xl font-semibold mb-4">Honors, Awards and achievements</h2>
                 <div className="space-y-6">
                   {honorsAwards.slice(0, visibleHonors).map((item, idx) => (
@@ -651,7 +752,15 @@ const About = () => {
           <section>
             <div className="w-full relative border-l-2 border-gray-300 pl-10">
               <div className="mb-10 relative">
-                <div className="absolute w-3.5 h-3.5 bg-gray-300 rounded-full left-[-25px] top-2"></div>
+                {/* star (14px) absolute positioned like your circle */}
+                <svg
+                  className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
                 <h2 className="text-2xl font-semibold mb-4">Chapter in Book</h2>
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {ChapterinBook.map((item, idx) => (
@@ -666,7 +775,15 @@ const About = () => {
           <section>
             <div className="w-full relative border-l-2 border-gray-300 pl-10">
               <div className="mb-10 relative">
-                <div className="absolute w-3.5 h-3.5 bg-gray-300 rounded-full left-[-25px] top-2"></div>
+                {/* star (14px) absolute positioned like your circle */}
+                <svg
+                  className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
                 <h2 className="text-2xl font-semibold mb-4">Personal Statement</h2>
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {PersonalStatement.map((item, idx) => (
@@ -680,6 +797,17 @@ const About = () => {
 
         </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50 hover:scale-110"
+          aria-label="Scroll to top"
+        >
+          <FaArrowUp className="text-xl" />
+        </button>
+      )}
     </div>
   );
 };

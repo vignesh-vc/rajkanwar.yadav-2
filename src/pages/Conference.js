@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { FaArrowUp } from "react-icons/fa";
 
 const conferences = [
   "HAPICON November 2004 held at Haryana",
@@ -59,41 +60,74 @@ const sortedPresentations = [...presentations].sort((a, b) => extractYear(b) - e
 
 export { conferences, presentations };
 
-const Conference = () => (
-  <div className="min-h-screen bg-gray-50 px-6 md:px-20 py-12">
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Conferences & Presentations</h1>
+const Conference = () => {
+  const [showScroll, setShowScroll] = useState(false);
 
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Conferences</h2>
-        <ul className="space-y-4">
-          {sortedConferences.map((conf, idx) => (
-            <li key={idx} className="p-4 border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white">
-              <div className="text-base font-semibold text-gray-800">{conf}</div>
-            </li>
-          ))}
-        </ul>
-      </section>
+  useEffect(() => {
+    const checkScrollTop = () => {
+      if (!showScroll && window.pageYOffset > 400) {
+        setShowScroll(true);
+      } else if (showScroll && window.pageYOffset <= 400) {
+        setShowScroll(false);
+      }
+    };
 
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Presentations</h2>
-        <ul className="space-y-4">
-          {sortedPresentations.map((pres, idx) => (
-            <li key={idx} className="p-4 border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white">
-              <div className="text-base font-semibold text-gray-800">{pres}</div>
-            </li>
-          ))}
-        </ul>
-      </section>
+    window.addEventListener("scroll", checkScrollTop);
+    return () => window.removeEventListener("scroll", checkScrollTop);
+  }, [showScroll]);
 
-      <button
-        onClick={() => window.location.href = '/'}
-        className="mt-8 px-4 py-2 bg-[#00CC99] text-white rounded shadow hover:bg-[#009977] transition"
-      >
-        Back to Home
-      </button>
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 px-6 md:px-20 py-12">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">Conferences & Presentations</h1>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold text-gray-700 mb-4">Conferences</h2>
+          <ul className="space-y-4">
+            {sortedConferences.map((conf, idx) => (
+              <li key={idx} className="p-4 border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white">
+                <div className="text-base font-semibold text-gray-800">{conf}</div>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-2xl font-semibold text-gray-700 mb-4">Presentations</h2>
+          <ul className="space-y-4">
+            {sortedPresentations.map((pres, idx) => (
+              <li key={idx} className="p-4 border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white">
+                <div className="text-base font-semibold text-gray-800">{pres}</div>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <button
+          onClick={() => window.location.href = '/'}
+          className="mt-8 px-4 py-2 bg-[#00CC99] text-white rounded shadow hover:bg-[#009977] transition"
+        >
+          Back to Home
+        </button>
+      </div>
+             {showScroll && (
+         <button
+           onClick={scrollToTop}
+           className="fixed bottom-6 right-6 bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50 hover:scale-110"
+           aria-label="Scroll to top"
+         >
+           <FaArrowUp className="text-xl" />
+         </button>
+       )}
     </div>
-  </div>
-);
+  );
+};
 
 export default Conference; 
