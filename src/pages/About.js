@@ -318,59 +318,80 @@ const About = () => {
 
   return (
     <div className="min-h-screen px-2 sm:px-4 md:px-8 py-6 flex flex-col items-center">
-      <div className="w-full  max-w-7xl grid grid-cols-1 md:grid-cols-[400px,1fr] gap-8">
+      <div className="w-full  max-w-6xl grid grid-cols-1 md:grid-cols-[400px,1fr] gap-8">
+   
         {/* Left Column */}
-        <div className="flex flex-col items-center md:items-start md:sticky md:top-20 md:self-start h-fit p-5 bg-gray-100 w-full text-center md:text-left border-r border-gray-300">
+        <div
+          className="flex flex-col items-start 
+              md:sticky md:top-16 md:self-start 
+              h-[calc(100vh-64px)] 
+              p-3 bg-gray-300 w-full max-w-xs 
+              text-left border-r pt-[33px] rounded-lg 
+              overflow-y-auto"
+        >
           {/* Profile Image */}
           <img
             src={profileImg}
             alt="Dr. Raj Kanwar Yadav"
-            className="w-40 h-40 object-cover rounded-full shadow-md border-2 border-gray-400 mb-4"
+            className="w-40 h-40 object-cover rounded-full shadow-md border-2 border-gray-400 mb-2 self-center"
           />
 
           {/* Name + Designation */}
-          <h2 className="text-xl font-bold text-gray-900">Dr. Raj Kanwar Yadav</h2>
-          <p className="text-sm text-gray-600 font-medium">
-            <br /> (M.B.B.S, M.D. (Medicine), D.M. (Nephrology)) <br />Department of Nephrology, AIIMS- New Delhi
+          <h2 className="text-sm font-bold text-gray-900 leading-tight text-center w-full">
+            Dr. Raj Kanwar Yadav
+          </h2>
+          <p className="text-[12px] text-gray-600 font-medium mb-1 text-center w-full leading-snug">
+            M.B.B.S, M.D. (Medicine), D.M. (Nephrology)<br />
+            Department of Nephrology, AIIMS – New Delhi
           </p>
 
           {/* Divider */}
-          <div className="flex items-center w-full my-3">
+          <div className="flex items-center w-full my-1">
             <hr className="flex-grow border-t border-gray-400" />
-            <span className="px-2 text-gray-500">✦</span>
+            <span className="px-1 text-gray-500 text-[10px]">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
           </div>
 
           {/* Contact Info */}
-          <section className="w-full text-sm space-y-2 mb-4">
-            {/* <div className="flex items-center gap-2 text-gray-700">
-              <span>📞</span> <span>(011) 456-7890</span>
-            </div>
-            <div className="flex items-center gap-2 text-gray-700">
-              <span>✉️</span> <span>raj.yadav@aiims.edu</span>
-            </div> */}
-            <div className="flex items-center gap-2 text-gray-700">
+          <section className="w-full text-[12px] space-y-1 mb-2 text-gray-700">
+            <div className="flex items-start gap-1">
               <span>📍</span>
               <span>
                 Room no 4088, Teaching Block,<br />
-                Department of Nephrology, AIIMS, New Delhi – 110029
+                Department of Nephrology,<br />
+                AIIMS, New Delhi – 110029
               </span>
             </div>
+
+            <ul className="flex items-start gap-2 pl-5">
+              {socialLinks.map((link, idx) => (
+                <li key={idx}>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-blue-600 text-xs"
+                  >
+                    {link.icon}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full my-3">
+          <div className="flex items-center w-full my-1">
             <hr className="flex-grow border-t border-gray-400" />
-            <span className="px-2 text-gray-500">✦</span>
+            <span className="px-1 text-gray-500 text-[10px]">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
           </div>
 
           {/* Clinical/Research Interests */}
-          <section className="w-full text-sm mb-4">
-            <h3 className="font-bold text-gray-800 mb-2">Clinical/Research Interests</h3>
-            <ul className="space-y-1">
+          <section className="w-full text-[12px] mb-2">
+            <h3 className="font-bold text-gray-800 mb-1">Clinical/Research Interests</h3>
+            <ul className="space-y-0.5">
               {researchInterests.map((item, idx) => (
-                <li key={idx} className="flex items-center gap-2">
+                <li key={idx} className="flex items-center gap-1">
                   <span className="text-gray-600">★</span>
                   <span className="text-gray-700">{item}</span>
                 </li>
@@ -379,37 +400,39 @@ const About = () => {
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full my-3">
+          <div className="flex items-center w-full my-1">
             <hr className="flex-grow border-t border-gray-400" />
-            <span className="px-2 text-gray-500">✦</span>
+            <span className="px-1 text-gray-500 text-[10px]">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
           </div>
 
           {/* Specialty */}
-          <section className="w-full text-sm mb-4">
-            <h3 className="font-bold text-gray-800 mb-2">Specialty</h3>
+          <section className="w-full text-[12px] mb-2">
+            <h3 className="font-bold text-gray-800 mb-1">Specialty</h3>
             <p className="text-gray-700">{specialty}</p>
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full my-3">
+          <div className="flex items-center w-full mb-[-5px">
             <hr className="flex-grow border-t border-gray-400" />
-            <span className="px-2 text-gray-500">✦</span>
+            <span className="px-1 text-gray-500 text-[10px]">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
           </div>
 
           {/* Social Media Links */}
-          <section className="w-full text-sm">
-            <h3 className="font-bold text-gray-800 mb-2">Social Media Presentations / Interviews</h3>
-            <ul className="space-y-2">
+          <section className="w-full text-[12px]">
+            <h3 className="font-bold text-gray-800 mb-1">
+              Social Media Presentations / Interviews
+            </h3>
+            <ul className="space-y-1">
               <li>
                 <a
                   href="https://www.youtube.com/watch?v=P46IHWnac8c"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-blue-600 hover:underline"
+                  className="flex items-center gap-1 text-blue-600 hover:underline"
                 >
-                  <FaYoutube className="text-red-600 text-lg" />
+                  <FaYoutube className="text-red-600 text-xs" />
                   Care and Misconception Part-1
                 </a>
               </li>
@@ -418,9 +441,9 @@ const About = () => {
                   href="https://www.youtube.com/watch?v=-1h6bbxvWyM"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-blue-600 hover:underline"
+                  className="flex items-center gap-1 text-blue-600 hover:underline"
                 >
-                  <FaYoutube className="text-red-600 text-lg" />
+                  <FaYoutube className="text-red-600 text-xs" />
                   Armaanon ki Udaan
                 </a>
               </li>
@@ -429,15 +452,18 @@ const About = () => {
                   href="https://www.youtube.com/watch?v=93kjWZKpkb0"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-blue-600 hover:underline"
+                  className="flex items-center gap-1 text-blue-600 hover:underline"
                 >
-                  <FaYoutube className="text-red-600 text-lg" />
+                  <FaYoutube className="text-red-600 text-xs" />
                   Dr R K Yadav - Nephrologist
                 </a>
               </li>
             </ul>
           </section>
         </div>
+
+
+
 
         {/* Right Column */}
         <div className="flex flex-col gap-10 min-w-0 pl-4 w-full flex-1">
