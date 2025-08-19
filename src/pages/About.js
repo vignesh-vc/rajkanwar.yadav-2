@@ -316,13 +316,13 @@ const About = () => {
 
   return (
     <div className="min-h-screen px-2 sm:px-4 md:px-8 py-6 flex justify-center">
-      <div className="w-full max-w-7xl">
+      <div className="w-full max-w-[1500px]"> {/* prevent stretching too wide */}
 
         {/* Left Column (Fixed) */}
         <div
           className="flex flex-col items-start 
   md:fixed md:top-16 md:left-0 
-  md:w-[400px] lg:w-[400px] xl:w-[480px] 
+  md:w-[400px] 
   p-10 bg-gray-300 
   text-left border-r pt-[30px] rounded-lg 
   shadow-md overflow-x-hidden"
@@ -332,7 +332,7 @@ const About = () => {
           <img
             src={profileImg}
             alt="Dr. Raj Kanwar Yadav"
-            className="w-[190px] h-[190px] object-cover rounded-full shadow-md border-2 border-gray-400 mt-[-20px] self-center"
+            className="w-[170px] h-[170px] object-cover rounded-full shadow-md border-2 border-gray-400 mt-[-20px] self-center"
           />
 
           {/* Name + Designation */}
@@ -461,10 +461,11 @@ const About = () => {
           </section>
         </div>
 
-
         {/* Right Column (Scrolls) */}
-        <div className="md:ml-[370px]   flex flex-col gap-8">
-
+        <div
+          className="flex flex-col gap-8 
+  md:ml-[400px]">   {/* 400px left + 50px gap */}
+        
           <section>
             <div className="w-full  relative  pl-10">
 
