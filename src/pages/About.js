@@ -319,11 +319,10 @@ const About = () => {
       <div className="w-full max-w-7xl">
 
         {/* Left Column (Fixed) */}
-
         <div
           className="flex flex-col items-start 
   md:fixed md:top-16 md:left-0 
-  md:w-[280px] lg:w-[420px] xl:w-[480px] 
+  md:w-[400px] lg:w-[400px] xl:w-[480px] 
   p-10 bg-gray-300 
   text-left border-r pt-[30px] rounded-lg 
   shadow-md overflow-x-hidden"
@@ -342,7 +341,7 @@ const About = () => {
           </h2>
           <p className="text-xs sm:text-sm md:text-[13px] text-gray-600 font-medium mb-2 text-center w-full leading-snug">
             M.B.B.S, M.D. (Medicine), D.M. (Nephrology)<br />
-            Department of Nephrology, AIIMS – New Delhi
+            Associate Professor , Department of Nephrology, AIIMS – New Delhi
           </p>
 
           {/* Divider */}
@@ -464,7 +463,7 @@ const About = () => {
 
 
         {/* Right Column (Scrolls) */}
-        <div className="md:ml-[370px] flex flex-col gap-8">
+        <div className="md:ml-[370px]   flex flex-col gap-8">
 
           <section>
             <div className="w-full  relative  pl-10">
