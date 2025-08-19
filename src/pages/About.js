@@ -318,14 +318,13 @@ const About = () => {
     <div className="min-h-screen px-2 sm:px-4 md:px-8 py-6 flex justify-center">
       <div className="w-full max-w-[1500px]"> {/* prevent stretching too wide */}
 
-        {/* Left Column (Responsive Fixed) */}
+        {/* Left Column (Fixed) */}
         <div
           className="flex flex-col items-start 
   md:fixed md:top-16 md:left-0 
-  md:min-w-[320px] md:max-w-[420px] md:flex-shrink-0
-  lg:w-[28%] xl:w-[25%] 
+  md:w-[440px] 
   min-h-[calc(100vh-4rem)] 
-  p-6 bg-gray-300 
+  p-10 bg-gray-300 
   text-left border-r pt-[30px] rounded-lg 
   shadow-md"
         >
@@ -338,7 +337,7 @@ const About = () => {
           />
 
           {/* Name + Designation */}
-          <h2 className="text-sm sm:text-base md:text-[20px] font-bold text-gray-900 leading-tight text-center w-full">
+          <h2 className="text-sm sm:text-base md:text-[22px] font-bold text-gray-900 leading-tight text-center w-full">
             Dr. Raj Kanwar Yadav
           </h2>
           <p className="text-xs sm:text-sm md:text-[13px] text-gray-600 font-medium mb-2 text-center w-full leading-snug">
@@ -408,10 +407,10 @@ const About = () => {
           </div>
 
           {/* Specialty */}
-          <section className="w-full text-xs sm:text-sm mb-1">
+          {/* <section className="w-full text-xs sm:text-sm mb-1">
             <h3 className="font-bold text-gray-800 mb-2">Specialty</h3>
             <p className="text-gray-700 mt-[-8px]">{specialty}</p>
-          </section>
+          </section> */}
 
           {/* Divider */}
           <div className="flex items-center w-full mt-[-5px] ">
