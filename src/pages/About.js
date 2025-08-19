@@ -337,7 +337,7 @@ const About = () => {
           />
 
           {/* Name + Designation */}
-          <h2 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 leading-tight text-center w-full">
+          <h2 className="text-sm sm:text-base md:text-2xl font-bold text-gray-900 leading-tight text-center w-full">
             Dr. Raj Kanwar Yadav
           </h2>
           <p className="text-xs sm:text-sm md:text-[13px] text-gray-600 font-medium mb-2 text-center w-full leading-snug">
