@@ -318,14 +318,16 @@ const About = () => {
     <div className="min-h-screen px-2 sm:px-4 md:px-8 py-6 flex justify-center">
       <div className="w-full max-w-[1500px]"> {/* prevent stretching too wide */}
 
-        {/* Left Column (Fixed) */}
+        {/* Left Column (Responsive Fixed) */}
         <div
           className="flex flex-col items-start 
   md:fixed md:top-16 md:left-0 
-  md:w-[440px] 
-  p-10 bg-gray-300 
+  md:min-w-[320px] md:max-w-[420px] md:flex-shrink-0
+  lg:w-[28%] xl:w-[25%] 
+  min-h-[calc(100vh-4rem)] 
+  p-6 bg-gray-300 
   text-left border-r pt-[30px] rounded-lg 
-  shadow-md overflow-x-hidden"
+  shadow-md"
         >
 
           {/* Profile Image */}
