@@ -341,7 +341,7 @@ const About = () => {
           </h2>
           <p className="text-xs sm:text-sm md:text-[13px] text-gray-600 font-medium mb-2 text-center w-full leading-snug">
             M.B.B.S, M.D. (Medicine), D.M. (Nephrology)<br />
-            Associate Professor , Department of Nephrology, AIIMS – New Delhi
+            Associate Professor , Department of Nephrology, <br /> AIIMS – New Delhi
           </p>
 
           {/* Divider */}
@@ -465,18 +465,16 @@ const About = () => {
         <div
           className="flex flex-col gap-8 
   md:ml-[420px]">   {/* 400px left + 50px gap */}
-        
+
           <section>
             <div className="w-full  relative  pl-10">
 
 
               {/* Bio-Sketch */}
-              {/* Bio-Sketch */}
               <div className="mb-10 relative">
-                {/* ✦ + vertical line */}
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
-                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+                  <span className="px-1 text-gray-500">✦</span>
 
                   {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
@@ -526,10 +524,9 @@ const About = () => {
 
               {/* Education */}
               <div className="mb-10 relative">
-                {/* ✦ + vertical line */}
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
-                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+                  <span className="px-1 text-gray-500">✦</span>
 
                   {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
@@ -672,9 +669,11 @@ const About = () => {
           <section>
             <div className="w-full relative pl-10">
               <div className="mb-10 relative">
-                {/* Timeline symbol + line */}
-                <div className="absolute left-[-18px] top-1 bottom-0 flex flex-col items-center">
-                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+                <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
+                  {/* symbol */}
+                  <span className="px-1 text-gray-500">✦</span>
+
+                  {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
                 </div>
 
@@ -779,10 +778,9 @@ const About = () => {
           <section>
             <div className="w-full relative  pl-10">
               <div className="mb-10 relative">
-                {/* ✦ + vertical line */}
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
-                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+                  <span className="px-1 text-gray-500">✦</span>
 
                   {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
@@ -813,7 +811,7 @@ const About = () => {
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
-                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+                  <span className="px-1 text-gray-500">✦</span>
 
                   {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
@@ -835,7 +833,7 @@ const About = () => {
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
-                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+                  <span className="px-1 text-gray-500">✦</span>
 
                   {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
