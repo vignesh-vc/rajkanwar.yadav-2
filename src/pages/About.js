@@ -322,7 +322,7 @@ const About = () => {
         <div
           className="flex flex-col items-start 
   md:fixed md:top-16 md:left-0 
-  md:w-[400px] 
+  md:w-[440px] 
   p-10 bg-gray-300 
   text-left border-r pt-[30px] rounded-lg 
   shadow-md overflow-x-hidden"
@@ -464,7 +464,7 @@ const About = () => {
         {/* Right Column (Scrolls) */}
         <div
           className="flex flex-col gap-8 
-  md:ml-[380px]">   {/* 400px left + 50px gap */}
+  md:ml-[420px]">   {/* 400px left + 50px gap */}
         
           <section>
             <div className="w-full  relative  pl-10">
