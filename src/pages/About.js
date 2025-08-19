@@ -370,7 +370,7 @@ const About = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-blue-600 text-sm"
+                    className="text-blue-600 hover:text- text-sm"
                   >
                     {link.icon}
                   </a>
@@ -536,7 +536,7 @@ const About = () => {
                 </div>
 
                 <h2 className="text-2xl font-semibold mb-4">Education</h2>
-                <div className="space-y-6">
+                <div className="space-y-6 pl-5">
                   <div>
                     <h3 className="text-lg font-semibold">DM (Nephrology)</h3>
                     <p className="text-gray-600">AIIMS, New Delhi</p>
@@ -564,7 +564,7 @@ const About = () => {
           </section>
           {/* Work Experience Section */}
           <section>
-            <div className="w-full relative border-l-2 border-gray-300 pl-10">
+            <div className="w-full relative pl-10">
               <Section ref={addToRefs} title="Teaching Experience">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {defaultExperience.map((item, index) => (
@@ -668,112 +668,128 @@ const About = () => {
 
             </div>
           </section>
-          <Section title="Abstracts">
-            <div className="overflow-x-auto">
-              <table className="min-w-full border border-gray-300 text-sm">
-                <thead className="bg-gray-200">
-                  <tr>
-                    <th className="p-2 border">S. No.</th>
-                    <th className="p-2 border">Authors</th>
-                    <th className="p-2 border">Title/Abstract</th>
-                    <th className="p-2 border">Conference</th>
-                    <th className="p-2 border">Date</th>
-                    <th className="p-2 border">Location</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="p-2 border">1</td>
-                    <td className="p-2 border">MS Gupta, RK Yadav</td>
-                    <td className="p-2 border">Glucose tolerance in non-diabetic patients with acute myocardial infarction- A short term follows up study</td>
-                    <td className="p-2 border">56th Annual Conference of Cardiological Society of India</td>
-                    <td className="p-2 border">2-5 December, 2004</td>
-                    <td className="p-2 border">Karnataka, Bangalore</td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 border">2</td>
-                    <td className="p-2 border">MS Gupta, Manish Singhal, Vijay Shanker, RK Yadav, A Kaushal</td>
-                    <td className="p-2 border">Ezetimibe as an Adjunct to Atorvastatin in Patients of Dyslipidemia</td>
-                    <td className="p-2 border">57th Annual Conference of Cardiological Society of India & 15th Asian Pacific Congress of Cardiology</td>
-                    <td className="p-2 border">December 1-4, 2005</td>
-                    <td className="p-2 border">Mumbai, India</td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 border">3</td>
-                    <td className="p-2 border">Yadav RK, Agarwal SK, Bhowmik D, Mahajan S, Bagchi S</td>
-                    <td className="p-2 border">Outcome of primary focal segmental glomerular sclerosis (FSGS)after renal transplantation in adult</td>
-                    <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
-                    <td className="p-2 border">16 Dec, 2017</td>
-                    <td className="p-2 border">New Delhi</td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 border">4</td>
-                    <td className="p-2 border">Bagchi S, Singh G, Bhowmik D, Mahajan S, Yadav RK, Barwad A, Dinda A, Agarwal SK</td>
-                    <td className="p-2 border">Borderline cellular rejection: Clinical co-relates and impact on graft outcome</td>
-                    <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
-                    <td className="p-2 border">15 Dec, 2017</td>
-                    <td className="p-2 border">New Delhi</td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 border">5</td>
-                    <td className="p-2 border">Behera V, Bagchi S, Yadav RK, Mahajan S, Bhowmik D, Agarwal SK</td>
-                    <td className="p-2 border">Rituximab treatment of adults patients with resistant primary focal segmental glomerulosclerosis</td>
-                    <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
-                    <td className="p-2 border">16 Dec, 2017</td>
-                    <td className="p-2 border">New Delhi</td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 border">6</td>
-                    <td className="p-2 border">Mangalgi S, Bagchi S, Madan K, Das CJ, Singh G, Yadav RK, Xess I, Singh S, Agarwal SK</td>
-                    <td className="p-2 border">Profile of pulmonary infections in renal transplant recipients in a tertiary care centre</td>
-                    <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
-                    <td className="p-2 border">15 Dec, 2017</td>
-                    <td className="p-2 border">New Delhi</td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 border">7</td>
-                    <td className="p-2 border">Behera V, Yadav RK, Bhowmik D, Kapil A, Kumar A, Bagchi S, Mahajan S, Agarwal SK</td>
-                    <td className="p-2 border">Prospective study of Clinical Profile, Outcomes and survival of Temporary femoral hemodialysis catheters</td>
-                    <td className="p-2 border">49th Annual conference of Indian society of Nephrology</td>
-                    <td className="p-2 border">22 Dec 2018</td>
-                    <td className="p-2 border">Bhubaneswar</td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 border">8</td>
-                    <td className="p-2 border">Philip Nishita Mohan, Bhowmik D, Mahajan S, Bagchi S, Yadav RK, Arun Kumar, Agarwal SK</td>
-                    <td className="p-2 border">Post Renal Transplant Malignancy in India-Single center experience</td>
-                    <td className="p-2 border">49th Annual conference of Indian society of Nephrology</td>
-                    <td className="p-2 border">22 Dec 2018</td>
-                    <td className="p-2 border">Bhubaneswar</td>
-                  </tr>
-                  <tr>
-                    <td className="p-2 border">9</td>
-                    <td className="p-2 border">Yadav RK</td>
-                    <td className="p-2 border">Clinico Microbiological Profile and Outcomes of Central Catheter Related Blood stream infections in Hemodialysis: A Single Centre Study</td>
-                    <td className="p-2 border">ISN WCN 2019</td>
-                    <td className="p-2 border">14 April, 2019</td>
-                    <td className="p-2 border">Melbourne, Australia</td>
-                  </tr>
-                </tbody>
-              </table>
+
+          <section>
+            <div className="w-full relative pl-10">
+              <div className="mb-10 relative">
+                {/* Timeline symbol + line */}
+                <div className="absolute left-[-18px] top-1 bottom-0 flex flex-col items-center">
+                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+                  <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
+                </div>
+
+                {/* Heading */}
+                <h2 className="text-2xl font-semibold mb-4">Abstracts</h2>
+
+                {/* Table */}
+                <div className="overflow-x-auto pl-5">
+                  <table className="min-w-full border border-gray-300 text-sm">
+                    <thead className="bg-gray-200">
+                      <tr>
+                        <th className="p-2 border">S. No.</th>
+                        <th className="p-2 border">Authors</th>
+                        <th className="p-2 border">Title/Abstract</th>
+                        <th className="p-2 border">Conference</th>
+                        <th className="p-2 border">Date</th>
+                        <th className="p-2 border">Location</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="p-2 border">1</td>
+                        <td className="p-2 border">MS Gupta, RK Yadav</td>
+                        <td className="p-2 border">Glucose tolerance in non-diabetic patients with acute myocardial infarction- A short term follows up study</td>
+                        <td className="p-2 border">56th Annual Conference of Cardiological Society of India</td>
+                        <td className="p-2 border">2-5 December, 2004</td>
+                        <td className="p-2 border">Karnataka, Bangalore</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">2</td>
+                        <td className="p-2 border">MS Gupta, Manish Singhal, Vijay Shanker, RK Yadav, A Kaushal</td>
+                        <td className="p-2 border">Ezetimibe as an Adjunct to Atorvastatin in Patients of Dyslipidemia</td>
+                        <td className="p-2 border">57th Annual Conference of Cardiological Society of India & 15th Asian Pacific Congress of Cardiology</td>
+                        <td className="p-2 border">December 1-4, 2005</td>
+                        <td className="p-2 border">Mumbai, India</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">3</td>
+                        <td className="p-2 border">Yadav RK, Agarwal SK, Bhowmik D, Mahajan S, Bagchi S</td>
+                        <td className="p-2 border">Outcome of primary focal segmental glomerular sclerosis (FSGS)after renal transplantation in adult</td>
+                        <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
+                        <td className="p-2 border">16 Dec, 2017</td>
+                        <td className="p-2 border">New Delhi</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">4</td>
+                        <td className="p-2 border">Bagchi S, Singh G, Bhowmik D, Mahajan S, Yadav RK, Barwad A, Dinda A, Agarwal SK</td>
+                        <td className="p-2 border">Borderline cellular rejection: Clinical co-relates and impact on graft outcome</td>
+                        <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
+                        <td className="p-2 border">15 Dec, 2017</td>
+                        <td className="p-2 border">New Delhi</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">5</td>
+                        <td className="p-2 border">Behera V, Bagchi S, Yadav RK, Mahajan S, Bhowmik D, Agarwal SK</td>
+                        <td className="p-2 border">Rituximab treatment of adults patients with resistant primary focal segmental glomerulosclerosis</td>
+                        <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
+                        <td className="p-2 border">16 Dec, 2017</td>
+                        <td className="p-2 border">New Delhi</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">6</td>
+                        <td className="p-2 border">Mangalgi S, Bagchi S, Madan K, Das CJ, Singh G, Yadav RK, Xess I, Singh S, Agarwal SK</td>
+                        <td className="p-2 border">Profile of pulmonary infections in renal transplant recipients in a tertiary care centre</td>
+                        <td className="p-2 border">48th Annual conference of Indian society of Nephrology</td>
+                        <td className="p-2 border">15 Dec, 2017</td>
+                        <td className="p-2 border">New Delhi</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">7</td>
+                        <td className="p-2 border">Behera V, Yadav RK, Bhowmik D, Kapil A, Kumar A, Bagchi S, Mahajan S, Agarwal SK</td>
+                        <td className="p-2 border">Prospective study of Clinical Profile, Outcomes and survival of Temporary femoral hemodialysis catheters</td>
+                        <td className="p-2 border">49th Annual conference of Indian society of Nephrology</td>
+                        <td className="p-2 border">22 Dec 2018</td>
+                        <td className="p-2 border">Bhubaneswar</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">8</td>
+                        <td className="p-2 border">Philip Nishita Mohan, Bhowmik D, Mahajan S, Bagchi S, Yadav RK, Arun Kumar, Agarwal SK</td>
+                        <td className="p-2 border">Post Renal Transplant Malignancy in India-Single center experience</td>
+                        <td className="p-2 border">49th Annual conference of Indian society of Nephrology</td>
+                        <td className="p-2 border">22 Dec 2018</td>
+                        <td className="p-2 border">Bhubaneswar</td>
+                      </tr>
+                      <tr>
+                        <td className="p-2 border">9</td>
+                        <td className="p-2 border">Yadav RK</td>
+                        <td className="p-2 border">Clinico Microbiological Profile and Outcomes of Central Catheter Related Blood stream infections in Hemodialysis: A Single Centre Study</td>
+                        <td className="p-2 border">ISN WCN 2019</td>
+                        <td className="p-2 border">14 April, 2019</td>
+                        <td className="p-2 border">Melbourne, Australia</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
-          </Section>
+
+          </section>
 
           {/* Honors, Awards, Publications, Clinical Trials */}
           <section>
-            <div className="w-full relative border-l-2 border-gray-300 pl-10">
+            <div className="w-full relative  pl-10">
               <div className="mb-10 relative">
-                {/* star (14px) absolute positioned like your circle */}
-                <svg
-                  className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
-                </svg>
+                {/* ✦ + vertical line */}
+                <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
+                  {/* symbol */}
+                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+
+                  {/* line */}
+                  <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
+                </div>
+
                 <h2 className="text-2xl font-semibold mb-4">Honors, Awards and achievements</h2>
-                <div className="space-y-6">
+                <div className="space-y-6 pl-5">
                   {honorsAwards.slice(0, visibleHonors).map((item, idx) => (
                     <div key={idx}>
                       <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -793,17 +809,16 @@ const About = () => {
           </section>
 
           <section>
-            <div className="w-full relative border-l-2 border-gray-300 pl-10">
+            <div className="w-full relative  pl-10">
               <div className="mb-10 relative">
-                {/* star (14px) absolute positioned like your circle */}
-                <svg
-                  className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
-                </svg>
+                <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
+                  {/* symbol */}
+                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+
+                  {/* line */}
+                  <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
+                </div>
+
                 <h2 className="text-2xl font-semibold mb-4">Chapter in Book</h2>
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {ChapterinBook.map((item, idx) => (
@@ -816,17 +831,16 @@ const About = () => {
           </section>
 
           <section>
-            <div className="w-full relative border-l-2 border-gray-300 pl-10">
+            <div className="w-full relative  pl-10">
               <div className="mb-10 relative">
-                {/* star (14px) absolute positioned like your circle */}
-                <svg
-                  className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
-                </svg>
+                <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
+                  {/* symbol */}
+                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+
+                  {/* line */}
+                  <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
+                </div>
+
                 <h2 className="text-2xl font-semibold mb-4">Personal Statement</h2>
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {PersonalStatement.map((item, idx) => (
