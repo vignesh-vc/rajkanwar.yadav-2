@@ -131,7 +131,7 @@ const researchInterests = [
   "Chronic Renal Failure",
   "Acute Kidney Injury",
   "Hypertension",
-  "Kidney Transplantation",
+  "Kidney Transplantation"
 ];
 
 const specialty = "Nephrology";
@@ -342,7 +342,7 @@ const About = () => {
           </h2>
           <p className="text-xs sm:text-sm md:text-[13px] text-gray-600 font-medium mb-2 text-center w-full leading-snug">
             M.B.B.S, M.D. (Medicine), D.M. (Nephrology)<br />
-            Associate Professor , Department of Nephrology, <br /> AIIMS – New Delhi
+            Associate Professor, Department of Nephrology, <br /> AIIMS – New Delhi
           </p>
 
           {/* Divider */}
@@ -386,12 +386,12 @@ const About = () => {
             <hr className="flex-grow border-t border-gray-400" />
           </div>
 
-          {/* Clinical/Research Interests */}
-          <section className="w-full  text-xs sm:text-sm mb-1">
+
+          <section className="w-full text-xs sm:text-sm mb-1">
             <h3 className="font-bold text-gray-800 mb-2">Clinical/Research Interests</h3>
-            <ul className="space-y-1  ">
+            <ul className="grid grid-cols-2 gap-y-1 gap-x-4">
               {researchInterests.map((item, idx) => (
-                <li key={idx} className="flex items-center gap-2">
+                <li key={idx} className="flex items-center gap-1">
                   <span className="text-gray-600">★</span>
                   <span className="text-gray-700">{item}</span>
                 </li>
@@ -407,10 +407,10 @@ const About = () => {
           </div>
 
           {/* Specialty */}
-          {/* <section className="w-full text-xs sm:text-sm mb-1">
+          <section className="w-full text-xs sm:text-sm mb-1">
             <h3 className="font-bold text-gray-800 mb-2">Specialty</h3>
             <p className="text-gray-700 mt-[-8px]">{specialty}</p>
-          </section> */}
+          </section>
 
           {/* Divider */}
           <div className="flex items-center w-full mt-[-5px] ">
