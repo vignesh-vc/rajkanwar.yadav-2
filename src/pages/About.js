@@ -171,15 +171,13 @@ const nephrologyTrainingIntro = `I trained in Department of Nephrology at All In
 // Section rendering helper
 export const Section = forwardRef(({ title, children }, ref) => (
   <div ref={ref} className="mb-6 relative">
-    {/* star (14px) absolute positioned like your circle */}
-    <svg
-      className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
-    </svg>
+    <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
+      {/* symbol */}
+      <span className="px-1 text-gray-500">✦</span>
+
+      {/* line */}
+      <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
+    </div>
 
     <h2 className="text-3xl font-bold text-gray-800">{title}</h2>
     {children}
@@ -317,43 +315,45 @@ const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen px-2 sm:px-4 md:px-8 py-6 flex flex-col items-center">
-      <div className="w-full  max-w-6xl grid grid-cols-1 md:grid-cols-[400px,1fr] gap-8">
-   
-        {/* Left Column */}
+    <div className="min-h-screen px-2 sm:px-4 md:px-8 py-6 flex justify-center">
+      <div className="w-full max-w-7xl">
+
+        {/* Left Column (Fixed) */}
+
         <div
           className="flex flex-col items-start 
-              md:sticky md:top-16 md:self-start 
-              h-[calc(100vh-64px)] 
-              p-3 bg-gray-300 w-full max-w-xs 
-              text-left border-r pt-[33px] rounded-lg 
-              overflow-y-auto"
+  md:fixed md:top-16 md:left-0 
+  md:w-[280px] lg:w-[420px] xl:w-[480px] 
+  p-10 bg-gray-300 
+  text-left border-r pt-[30px] rounded-lg 
+  shadow-md overflow-x-hidden"
         >
+
           {/* Profile Image */}
           <img
             src={profileImg}
             alt="Dr. Raj Kanwar Yadav"
-            className="w-40 h-40 object-cover rounded-full shadow-md border-2 border-gray-400 mb-2 self-center"
+            className="w-40 h-40 object-cover rounded-full shadow-md border-2 border-gray-400 mb-3 self-center"
           />
 
           {/* Name + Designation */}
-          <h2 className="text-sm font-bold text-gray-900 leading-tight text-center w-full">
+          <h2 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 leading-tight text-center w-full">
             Dr. Raj Kanwar Yadav
           </h2>
-          <p className="text-[12px] text-gray-600 font-medium mb-1 text-center w-full leading-snug">
+          <p className="text-xs sm:text-sm md:text-[13px] text-gray-600 font-medium mb-2 text-center w-full leading-snug">
             M.B.B.S, M.D. (Medicine), D.M. (Nephrology)<br />
             Department of Nephrology, AIIMS – New Delhi
           </p>
 
           {/* Divider */}
-          <div className="flex items-center w-full my-1">
+          <div className="flex items-center w-full my-2 mt-[-5px]">
             <hr className="flex-grow border-t border-gray-400" />
-            <span className="px-1 text-gray-500 text-[10px]">✦</span>
+            <span className="px-2 text-gray-500 text-[10px] sm:text-xs">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
           </div>
 
           {/* Contact Info */}
-          <section className="w-full text-[12px] space-y-1 mb-2 text-gray-700">
+          <section className="w-full   text-xs sm:text-sm space-y-1 mb-3 text-gray-700">
             <div className="flex items-start gap-1">
               <span>📍</span>
               <span>
@@ -363,14 +363,14 @@ const About = () => {
               </span>
             </div>
 
-            <ul className="flex items-start  gap-2 pl-5">
+            <ul className="flex gap-2 pl-5">
               {socialLinks.map((link, idx) => (
                 <li key={idx}>
                   <a
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-blue-600 text-xs"
+                    className="text-gray-700 hover:text-blue-600 text-sm"
                   >
                     {link.icon}
                   </a>
@@ -380,18 +380,18 @@ const About = () => {
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full mt-[-10px] my-2">
+          <div className="flex items-center w-full  my-2 mt-[-5px]">
             <hr className="flex-grow border-t border-gray-400" />
-            <span className="px-1 text-gray-500 text-[10px]">✦</span>
+            <span className="px-2 text-gray-500 text-[10px] sm:text-xs">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
           </div>
 
           {/* Clinical/Research Interests */}
-          <section className="w-full text-[12px] mb-2">
-            <h3 className="font-bold text-gray-800 mb-1">Clinical/Research Interests</h3>
-            <ul className="space-y-0.5">
+          <section className="w-full  text-xs sm:text-sm mb-1">
+            <h3 className="font-bold text-gray-800 mb-2">Clinical/Research Interests</h3>
+            <ul className="space-y-1  ">
               {researchInterests.map((item, idx) => (
-                <li key={idx} className="flex items-center  gap-1">
+                <li key={idx} className="flex items-center gap-2">
                   <span className="text-gray-600">★</span>
                   <span className="text-gray-700">{item}</span>
                 </li>
@@ -400,37 +400,37 @@ const About = () => {
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full  mt-[-10px] my-1">
+          <div className="flex items-center w-full  my-2 mt-[-5px]">
             <hr className="flex-grow border-t border-gray-400" />
-            <span className="px-1 text-gray-500 text-[10px]">✦</span>
+            <span className="px-2 text-gray-500 text-[10px] sm:text-xs">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
           </div>
 
           {/* Specialty */}
-          <section className="w-full text-[12px] mb-0">
-            <h3 className="font-bold text-gray-800 mb-0">Specialty</h3>
-            <p className="text-gray-700">{specialty}</p>
+          <section className="w-full text-xs sm:text-sm mb-1">
+            <h3 className="font-bold text-gray-800 mb-2">Specialty</h3>
+            <p className="text-gray-700 mt-[-8px]">{specialty}</p>
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full  mt-[-8px] my-1">
+          <div className="flex items-center w-full mt-[-5px] ">
             <hr className="flex-grow border-t border-gray-400" />
-            <span className="px-1 text-gray-500 text-[10px]">✦</span>
+            <span className="px-2 text-gray-500 text-[10px] sm:text-xs">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
           </div>
 
           {/* Social Media Links */}
-          <section className="w-full text-[12px]">
-            <h3 className="font-bold text-gray-800 mb-1">
+          <section className="w-full  text-xs sm:text-sm">
+            <h3 className="font-bold text-gray-800 mb-2">
               Social Media Presentations / Interviews
             </h3>
-            <ul className="space-y-1">
+            <ul className="space-y-2">
               <li>
                 <a
                   href="https://www.youtube.com/watch?v=P46IHWnac8c"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-blue-600 hover:underline"
+                  className="flex items-center gap-2 text-blue-600 hover:underline"
                 >
                   <FaYoutube className="text-red-600 text-xs" />
                   Care and Misconception Part-1
@@ -441,7 +441,7 @@ const About = () => {
                   href="https://www.youtube.com/watch?v=-1h6bbxvWyM"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-blue-600 hover:underline"
+                  className="flex items-center gap-2 text-blue-600 hover:underline"
                 >
                   <FaYoutube className="text-red-600 text-xs" />
                   Armaanon ki Udaan
@@ -452,7 +452,7 @@ const About = () => {
                   href="https://www.youtube.com/watch?v=93kjWZKpkb0"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-blue-600 hover:underline"
+                  className="flex items-center gap-2 text-blue-600 hover:underline"
                 >
                   <FaYoutube className="text-red-600 text-xs" />
                   Dr R K Yadav - Nephrologist
@@ -463,60 +463,77 @@ const About = () => {
         </div>
 
 
-
-
-        {/* Right Column */}
-        <div className="flex flex-col gap-10 min-w-0 pl-4 w-full flex-1">
-          {/* Doctor Info */}
-
+        {/* Right Column (Scrolls) */}
+        <div className="md:ml-[370px] flex flex-col gap-8">
 
           <section>
-            <div className="w-full  relative border-l-2 border-gray-300 pl-10">
+            <div className="w-full  relative  pl-10">
 
 
               {/* Bio-Sketch */}
+              {/* Bio-Sketch */}
               <div className="mb-10 relative">
-                {/* star (14px) absolute positioned like your circle */}
-                <svg
-                  className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
-                </svg>
+                {/* ✦ + vertical line */}
+                <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
+                  {/* symbol */}
+                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+
+                  {/* line */}
+                  <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
+                </div>
 
                 <h2 className="text-2xl font-semibold mb-2">Bio-Sketch</h2>
-                <ul className=" pl-6 mt-4 space-y-2">
+                <ul className="pl-6 mt-4 space-y-2">
                   <li className="text-gray-600 leading-relaxed">
-                    Dr. Raj Kanwar Yadav is a distinguished nephrologist and academician with over two decades of experience in internal medicine and nephrology. He completed his MBBS from Jawaharlal Nehru Medical College, Ajmer, followed by an MD in General Medicine from PGIMS, Rohtak, and a DM in Nephrology from the prestigious AIIMS, New Delhi. </li>
-                  <li className="text-gray-600 leading-relaxed">
-                    Currently serving as an Associate Professor in the Department of Nephrology at AIIMS, New Delhi, Dr. Yadav has held numerous academic positions, including faculty roles at PGIMS, Rohtak. He is a recognized postgraduate and DM Nephrology teacher, actively involved in mentoring, thesis supervision, and bedside teaching.</li>
-
-                  <li className="text-gray-600 leading-relaxed">
-
-                    A prolific researcher and speaker, Dr. Yadav has attended and presented at numerous national and international conferences. He has over 70 peer-reviewed publications and has contributed to multiple medical textbooks, particularly in nephrology and transplant medicine. His clinical expertise spans across dialysis, renal transplantation, and interventional nephrology, having performed hundreds of catheterizations, biopsies, and transplant management procedures.
+                    Dr. Raj Kanwar Yadav is a distinguished nephrologist and academician with
+                    over two decades of experience in internal medicine and nephrology. He
+                    completed his MBBS from Jawaharlal Nehru Medical College, Ajmer, followed
+                    by an MD in General Medicine from PGIMS, Rohtak, and a DM in Nephrology
+                    from the prestigious AIIMS, New Delhi.
                   </li>
                   <li className="text-gray-600 leading-relaxed">
-                    He is a Fellow of the American Society of Nephrology and holds memberships in several prominent societies including the Indian Society of Nephrology and the International Society of Nephrology. Dr. Yadav has also played a vital role in organizing nephrology conclaves, CMEs, and health camps.  </li>
-                  <li className="text-gray-600 leading-relaxed">
-
-                    Renowned for his compassionate patient care, academic commitment, and clinical acumen, Dr. Yadav continues to make significant contributions to kidney health, education, and research in India and beyond.
+                    Currently serving as an Associate Professor in the Department of
+                    Nephrology at AIIMS, New Delhi, Dr. Yadav has held numerous academic
+                    positions, including faculty roles at PGIMS, Rohtak. He is a recognized
+                    postgraduate and DM Nephrology teacher, actively involved in mentoring,
+                    thesis supervision, and bedside teaching.
                   </li>
-
+                  <li className="text-gray-600 leading-relaxed">
+                    A prolific researcher and speaker, Dr. Yadav has attended and presented at
+                    numerous national and international conferences. He has over 70
+                    peer-reviewed publications and has contributed to multiple medical
+                    textbooks, particularly in nephrology and transplant medicine. His
+                    clinical expertise spans across dialysis, renal transplantation, and
+                    interventional nephrology, having performed hundreds of catheterizations,
+                    biopsies, and transplant management procedures.
+                  </li>
+                  <li className="text-gray-600 leading-relaxed">
+                    He is a Fellow of the American Society of Nephrology and holds memberships
+                    in several prominent societies including the Indian Society of Nephrology
+                    and the International Society of Nephrology. Dr. Yadav has also played a
+                    vital role in organizing nephrology conclaves, CMEs, and health camps.
+                  </li>
+                  <li className="text-gray-600 leading-relaxed">
+                    Renowned for his compassionate patient care, academic commitment, and
+                    clinical acumen, Dr. Yadav continues to make significant contributions to
+                    kidney health, education, and research in India and beyond.
+                  </li>
                 </ul>
               </div>
+
+
+
+
               {/* Education */}
               <div className="mb-10 relative">
-                {/* star (14px) absolute positioned like your circle */}
-                <svg
-                  className="absolute left-[-25px] top-2 w-3.5 h-3.5 text-gray-600"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M12 17.27 18.18 21 16.54 13.97 22 9.24l-7.19-1.04L12 2 9.19 8.2 2 9.24l5.46 4.73L5.82 21z" />
-                </svg>
+                {/* ✦ + vertical line */}
+                <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
+                  {/* symbol */}
+                  <span className="px-1 text-gray-500 text-[15px]">✦</span>
+
+                  {/* line */}
+                  <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
+                </div>
 
                 <h2 className="text-2xl font-semibold mb-4">Education</h2>
                 <div className="space-y-6">
