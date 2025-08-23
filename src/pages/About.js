@@ -5,6 +5,7 @@ import { conferences, presentations } from "./Conference";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useNavigate } from "react-router-dom";
+import Location from "../assests/location.png"
 gsap.registerPlugin(ScrollTrigger);
 
 // Data
@@ -173,13 +174,13 @@ export const Section = forwardRef(({ title, children }, ref) => (
   <div ref={ref} className="mb-6 relative">
     <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
       {/* symbol */}
-      <span className="px-1 text-gray-500">✦</span>
+      <span className="px-1 text-2xl text-gray-500">✦</span>
 
       {/* line */}
       <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
     </div>
 
-    <h2 className="text-3xl font-bold text-gray-800">{title}</h2>
+    <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">{title}</h2>
     {children}
   </div>
 ));
@@ -320,7 +321,7 @@ const About = () => {
 
         {/* Left Column (Fixed) */}
         <div
-          className="flex flex-col items-start 
+          className="flex flex-col items-start  md:ml-[50px]
   md:fixed md:top-16 md:left-0 
   md:w-[440px] 
   min-h-[calc(100vh-4rem)] 
@@ -333,7 +334,7 @@ const About = () => {
           <img
             src={profileImg}
             alt="Dr. Raj Kanwar Yadav"
-            className="w-[170px] h-[170px] object-cover rounded-full shadow-md border-2 border-gray-400 mt-[-20px] self-center"
+            className="w-[185px] h-[185px] object-cover rounded-full shadow-md border-2 border-gray-400 mt-[-20px] self-center"
           />
 
           {/* Name + Designation */}
@@ -355,7 +356,8 @@ const About = () => {
           {/* Contact Info */}
           <section className="w-full   text-xs sm:text-sm space-y-1 mb-3 text-gray-700">
             <div className="flex items-start gap-1">
-              <span>📍</span>
+              <img className="w-[17px] h-[17px] " src={Location}></img>
+
               <span>
                 Room no 4088, Teaching Block,<br />
                 Department of Nephrology,<br />
@@ -465,7 +467,7 @@ const About = () => {
         {/* Right Column (Scrolls) */}
         <div
           className="flex flex-col gap-8 
-  md:ml-[420px]">   {/* 400px left + 50px gap */}
+  md:ml-[470px]">   {/* 400px left + 50px gap */}
 
           <section>
             <div className="w-full  relative  pl-10">
@@ -475,13 +477,13 @@ const About = () => {
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
-                  <span className="px-1 text-gray-500">✦</span>
+                  <span className="px-1 text-2xl  text-gray-500">✦</span>
 
                   {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
                 </div>
 
-                <h2 className="text-2xl font-semibold mb-2">Bio-Sketch</h2>
+                <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">Bio-Sketch</h2>
                 <ul className="pl-6 mt-4 space-y-2">
                   <li className="text-gray-600 leading-relaxed">
                     Dr. Raj Kanwar Yadav is a distinguished nephrologist and academician with
@@ -527,13 +529,13 @@ const About = () => {
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
-                  <span className="px-1 text-gray-500">✦</span>
+                  <span className="px-1 text-2xl text-gray-500">✦</span>
 
                   {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
                 </div>
 
-                <h2 className="text-2xl font-semibold mb-4">Education</h2>
+                <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">Education</h2>
                 <div className="space-y-6 pl-5">
                   <div>
                     <h3 className="text-lg font-semibold">DM (Nephrology)</h3>
@@ -563,6 +565,13 @@ const About = () => {
           {/* Work Experience Section */}
           <section>
             <div className="w-full relative pl-10">
+              <Section ref={addToRefs} title="Affiliations and Membership">
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                  {(additionalExperience["Affiliations and Memberships"] || []).map((item, index) => (
+                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
+                  ))}
+                </ul>
+              </Section>
               <Section ref={addToRefs} title="Teaching Experience">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {defaultExperience.map((item, index) => (
@@ -570,12 +579,21 @@ const About = () => {
                   ))}
                 </ul>
               </Section>
-              <Section ref={addToRefs} title="Affiliations and Membership">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
-                  {(additionalExperience["Affiliations and Memberships"] || []).map((item, index) => (
-                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
+              <Section ref={addToRefs} title="Nephrology Training">
+                <p className="text-gray-700 mb-4 whitespace-pre-line">
+                  Dr. RK Yadav trained in Department of Nephrology at All India Institute Medical Sciences, New Delhi, a 2500 bedded super-specialty hospital, catering to the whole Nation and adjoining neighboring countries like Pakistan, Nepal, Afghanistan and Bangladesh, is truly one of its kind in the Asia.
+                  Training at AIIMS has provided me with an unmatched clinical exposure in all aspects of nephrology. The tremendous patient load has rendered me competent and confident in dealing with all kinds of patients. Some aspects of my clinical experience are summarized here:
+                </p>
+                <ul className="list-disc pl-5">
+                  {nephrologyTrainingPoints.slice(0, 5).map((point, idx) => (
+                    <li key={idx}>{point}</li>
                   ))}
                 </ul>
+                <button
+                  onClick={() => window.location.href = '/training'}
+                  className="mt-2 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition w-full sm:w-auto">
+                  All Training
+                </button>
               </Section>
               <Section ref={addToRefs} title="PG Thesis">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
@@ -591,38 +609,8 @@ const About = () => {
                   ))}
                 </ul>
               </Section>
-              <Section ref={addToRefs} title="Nephrology Training">
-                <p className="text-gray-700 mb-4 whitespace-pre-line">
-                  I trained in Department of Nephrology at All India Institute Medical Sciences, New Delhi, a 2500 bedded super-specialty hospital, catering to the whole Nation and adjoining neighboring countries like Pakistan, Nepal, Afghanistan and Bangladesh, is truly one of its kind in the Asia.
-                  Training at AIIMS has provided me with an unmatched clinical exposure in all aspects of nephrology. The tremendous patient load has rendered me competent and confident in dealing with all kinds of patients. Some aspects of my clinical experience are summarized here:
-                </p>
-                <ul className="list-disc pl-5">
-                  {nephrologyTrainingPoints.slice(0, 5).map((point, idx) => (
-                    <li key={idx}>{point}</li>
-                  ))}
-                </ul>
-                <button
-                  onClick={() => window.location.href = '/training'}
-                  className="mt-2 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition w-full sm:w-auto">
-                  All Training
-                </button>
-              </Section>
 
-              <Section ref={addToRefs} title="Recent Clinical Trials">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
-                  <li className="text-gray-600 leading-relaxed">
-                    As Open-label, Randomized, Parallel-group, Two Arm Clinical Study to Evaluate the anti-inflammatory effect of ferronemia (lactoferrin + disodium guanosine monophosphate) tablet + Conservative Chronic Kidney Disease Management Therapy versus Conservative Chronic Kidney Disease Management Therapy in the Subjects with Chronic Kidney Disease.<br />
-                    <b>Principal Investigator</b>, Jul 2022 - Mar 2023, Trial ID:
-                    <a href="https://ctri.nic.in/Clinicaltrials/pmaindet2.php?EncHid=NzE1MjE=&Enc=&userName=" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">CTRI/2022/07/044200</a>
-                  </li>
-                  <li className="text-gray-600 leading-relaxed">
-                    Pattern of CYP3A5 and MDR-1 single nucleotide polymorphism and its Impact on Individualization of Tacrolimus based Immunosuppression in Living Renal Allograft recipient.<br />
-                    <b>Principal Investigator</b>, Mar 2017 - Mar 2017, Trial ID:
-                    <a href="https://ctri.nic.in/Clinicaltrials/pmaindet2.php?EncHid=MTYyNTc=&Enc=&userName=" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">CTRI/2017/03/007997</a>
-                  </li>
-                </ul>
-              </Section>
-              <Section ref={addToRefs} title="Recent Conferences">
+              <Section ref={addToRefs} title="Conferences">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {getRecentByYear(conferences).map((conf, idx) => (
                     <li key={idx} className="leading-relaxed break-words w-full">{linkify(conf)}</li>
@@ -635,7 +623,7 @@ const About = () => {
                   All Conferences
                 </button>
               </Section>
-              <Section ref={addToRefs} title="Recent Presentations">
+              <Section ref={addToRefs} title="Presentations">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {getRecentByYear(presentations).map((pres, idx) => (
                     <li key={idx} className="leading-relaxed break-words w-full">{linkify(pres)}</li>
@@ -650,7 +638,7 @@ const About = () => {
               </Section>
 
 
-              <Section ref={addToRefs} title="Recent Publications">
+              <Section ref={addToRefs} title="Publications">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {sortedRecentPublications.map((item, index) => (
                     <li key={index} className="leading-relaxed break-words w-full">{linkify(item)}</li>
@@ -663,6 +651,21 @@ const About = () => {
                   All Publications
                 </button>
               </Section>
+              <Section ref={addToRefs} title="Clinical Trials">
+                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                  <li className="text-gray-600 leading-relaxed">
+                    As Open-label, Randomized, Parallel-group, Two Arm Clinical Study to Evaluate the anti-inflammatory effect of ferronemia (lactoferrin + disodium guanosine monophosphate) tablet + Conservative Chronic Kidney Disease Management Therapy versus Conservative Chronic Kidney Disease Management Therapy in the Subjects with Chronic Kidney Disease.<br />
+                    <b>Principal Investigator</b>, Jul 2022 - Mar 2023, Trial ID:
+                    <a href="https://ctri.nic.in/Clinicaltrials/pmaindet2.php?EncHid=NzE1MjE=&Enc=&userName=" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">CTRI/2022/07/044200</a>
+                  </li>
+                  <li className="text-gray-600 leading-relaxed">
+                    Pattern of CYP3A5 and MDR-1 single nucleotide polymorphism and its Impact on Individualization of Tacrolimus based Immunosuppression in Living Renal Allograft recipient.<br />
+                    <b>Principal Investigator</b>, Mar 2017 - Mar 2017, Trial ID:
+                    <a href="https://ctri.nic.in/Clinicaltrials/pmaindet2.php?EncHid=MTYyNTc=&Enc=&userName=" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">CTRI/2017/03/007997</a>
+                  </li>
+                </ul>
+              </Section>
+
 
             </div>
           </section>
@@ -672,14 +675,14 @@ const About = () => {
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
-                  <span className="px-1 text-gray-500">✦</span>
+                  <span className="px-1 text-2xl text-gray-500">✦</span>
 
                   {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
                 </div>
 
                 {/* Heading */}
-                <h2 className="text-2xl font-semibold mb-4">Abstracts</h2>
+                <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">Abstracts</h2>
 
                 {/* Table */}
                 <div className="overflow-x-auto pl-5">
@@ -781,13 +784,13 @@ const About = () => {
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
-                  <span className="px-1 text-gray-500">✦</span>
+                  <span className="px-1 text-2xl text-gray-500">✦</span>
 
                   {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
                 </div>
 
-                <h2 className="text-2xl font-semibold mb-4">Honors, Awards and achievements</h2>
+                <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">Honors, Awards and achievements</h2>
                 <div className="space-y-6 pl-5">
                   {honorsAwards.slice(0, visibleHonors).map((item, idx) => (
                     <div key={idx}>
@@ -812,13 +815,13 @@ const About = () => {
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
-                  <span className="px-1 text-gray-500">✦</span>
+                  <span className="px-1 text-2xl text-gray-500">✦</span>
 
                   {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
                 </div>
 
-                <h2 className="text-2xl font-semibold mb-4">Chapter in Book</h2>
+                <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">Chapters in Book</h2>
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {ChapterinBook.map((item, idx) => (
                     <li key={idx} className="leading-relaxed break-words w-full">{item}</li>
@@ -834,13 +837,13 @@ const About = () => {
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
-                  <span className="px-1 text-gray-500">✦</span>
+                  <span className="px-1 text-2xl text-gray-500">✦</span>
 
                   {/* line */}
                   <span className="w-[2px] flex-1 bg-gray-400 mt-1"></span>
                 </div>
 
-                <h2 className="text-2xl font-semibold mb-4">Personal Statement</h2>
+                <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">Personal Statement</h2>
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {PersonalStatement.map((item, idx) => (
                     <li key={idx} className="leading-relaxed break-words w-full">{item}</li>
