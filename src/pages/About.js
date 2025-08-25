@@ -334,7 +334,7 @@ const About = () => {
           <img
             src={profileImg}
             alt="Dr. Raj Kanwar Yadav"
-            className="w-[185px] h-[185px] object-cover rounded-full shadow-md border-2 border-gray-400 mt-[-20px] self-center"
+            className="w-[210px] h-[210px] object-cover rounded-full shadow-md border-2 border-gray-400 mt-[-20px] self-center"
           />
 
           {/* Name + Designation */}
