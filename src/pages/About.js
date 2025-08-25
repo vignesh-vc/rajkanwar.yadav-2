@@ -334,7 +334,7 @@ const About = () => {
           <img
             src={profileImg}
             alt="Dr. Raj Kanwar Yadav"
-            className="w-[210px] h-[210px] object-cover rounded-full shadow-md border-2 border-gray-400 mt-[-20px] self-center"
+            className="w-[260px] h-[260px] object-cover rounded-full shadow-md border-2 border-gray-400 mt-[-20px] self-center"
           />
 
           {/* Name + Designation */}
@@ -382,16 +382,16 @@ const About = () => {
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full  my-2 mt-[-5px]">
+          {/* <div className="flex items-center w-full  my-2 mt-[-5px]">
             <hr className="flex-grow border-t border-gray-400" />
             <span className="px-2 text-gray-500 text-[10px] sm:text-xs">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
-          </div>
+          </div> */}
 
 
           <section className="w-full text-xs sm:text-sm mb-1">
             <h3 className="font-bold text-gray-800 mb-2">Clinical/Research Interests</h3>
-            <ul className="grid grid-cols-2 gap-y-1 gap-x-4">
+            <ul className="grid grid-cols-2 mb-1 gap-y-1 gap-x-4">
               {researchInterests.map((item, idx) => (
                 <li key={idx} className="flex items-center gap-1">
                   <span className="text-gray-600">★</span>
@@ -402,28 +402,28 @@ const About = () => {
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full  my-2 mt-[-5px]">
+          {/* <div className="flex items-center w-full  my-2 mt-[-5px]">
             <hr className="flex-grow border-t border-gray-400" />
             <span className="px-2 text-gray-500 text-[10px] sm:text-xs">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
-          </div>
+          </div> */}
 
           {/* Specialty */}
           <section className="w-full text-xs sm:text-sm mb-1">
-            <h3 className="font-bold text-gray-800 mb-2">Specialty</h3>
-            <p className="text-gray-700 mt-[-8px]">{specialty}</p>
+            <h3 className="font-bold text-gray-800 mb-2">Specialty:{specialty}</h3>
+            {/* <p className="text-gray-700 mt-[-8px]"></p> */}
           </section>
 
           {/* Divider */}
-          <div className="flex items-center w-full mt-[-5px] ">
+          {/* <div className="flex items-center w-full mt-[-5px] ">
             <hr className="flex-grow border-t border-gray-400" />
             <span className="px-2 text-gray-500 text-[10px] sm:text-xs">✦</span>
             <hr className="flex-grow border-t border-gray-400" />
-          </div>
+          </div> */}
 
           {/* Social Media Links */}
           {/* Social Media Links */}
-<section className="w-full text-xs sm:text-sm">
+<section className="w-full text-xs mt-[-5px] sm:text-sm mb-1">
   <h3 className="font-bold text-gray-800 mb-2">
     Social Media Presentations / Interviews
   </h3>
