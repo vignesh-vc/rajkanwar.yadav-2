@@ -171,7 +171,7 @@ const nephrologyTrainingIntro = `I trained in Department of Nephrology at All In
 
 // Section rendering helper
 export const Section = forwardRef(({ title, children }, ref) => (
-  <div ref={ref} className="mb-6 relative">
+  <div ref={ref} className="mb-5 relative">
     <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
       {/* symbol */}
       <span className="px-1 text-2xl text-gray-500">✦</span>
@@ -422,46 +422,56 @@ const About = () => {
           </div>
 
           {/* Social Media Links */}
-          <section className="w-full  text-xs sm:text-sm">
-            <h3 className="font-bold text-gray-800 mb-2">
-              Social Media Presentations / Interviews
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="https://www.youtube.com/watch?v=P46IHWnac8c"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-blue-600 hover:underline"
-                >
-                  <FaYoutube className="text-red-600 text-xs" />
-                  Care and Misconception Part-1
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.youtube.com/watch?v=-1h6bbxvWyM"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-blue-600 hover:underline"
-                >
-                  <FaYoutube className="text-red-600 text-xs" />
-                  Armaanon ki Udaan
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.youtube.com/watch?v=93kjWZKpkb0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-blue-600 hover:underline"
-                >
-                  <FaYoutube className="text-red-600 text-xs" />
-                  Dr R K Yadav - Nephrologist
-                </a>
-              </li>
-            </ul>
-          </section>
+          {/* Social Media Links */}
+<section className="w-full text-xs sm:text-sm">
+  <h3 className="font-bold text-gray-800 mb-2">
+    Social Media Presentations / Interviews
+  </h3>
+  <ul className="space-y-2">
+    {/* First Item - Full Width */}
+    <li>
+      <a
+        href="https://www.youtube.com/watch?v=P46IHWnac8c"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-blue-600 hover:underline text-[15px] sm:text-[12px]"
+      >
+        <FaYoutube className="text-red-600 text-sm" />
+        Care and Misconception Part-1
+      </a>
+    </li>
+
+    {/* 2nd line with 2 items side by side */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <li>
+        <a
+          href="https://www.youtube.com/watch?v=-1h6bbxvWyM"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-blue-600 hover:underline text-[15px] sm:text-[12px]"
+        >
+          <FaYoutube className="text-red-600 text-sm" />
+          Armaanon ki Udaan
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.youtube.com/watch?v=93kjWZKpkb0"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-blue-600 hover:underline text-[15px] sm:text-[12px]"
+        >
+          <FaYoutube className="text-red-600 text-sm" />
+          Dr R K Yadav - Nephrologist
+        </a>
+      </li>
+    </div>
+  </ul>
+</section>
+
+
+
+
         </div>
 
         {/* Right Column (Scrolls) */}
@@ -474,7 +484,7 @@ const About = () => {
 
 
               {/* Bio-Sketch */}
-              <div className="mb-10 relative">
+              <div className="mb-6 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
                   <span className="px-1 text-2xl  text-gray-500">✦</span>
@@ -526,8 +536,8 @@ const About = () => {
 
 
               {/* Education */}
-              <div className="mb-10 relative">
-                <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
+              <div className=" relative">
+                <div className="mb- absolute left-[-18px] top-1 h-full flex flex-col items-center">
                   {/* symbol */}
                   <span className="px-1 text-2xl text-gray-500">✦</span>
 
@@ -563,8 +573,8 @@ const About = () => {
             </div>
           </section>
           {/* Work Experience Section */}
-          <section>
-            <div className="w-full relative pl-10">
+          <section className="">
+            <div className="w-full  relative pl-10">
               <Section ref={addToRefs} title="Affiliations and Membership">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {(additionalExperience["Affiliations and Memberships"] || []).map((item, index) => (
@@ -670,7 +680,7 @@ const About = () => {
             </div>
           </section>
 
-          <section>
+          <section className="mt-[-30px]">
             <div className="w-full relative pl-10">
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
@@ -779,7 +789,7 @@ const About = () => {
           </section>
 
           {/* Honors, Awards, Publications, Clinical Trials */}
-          <section>
+          <section className="mt-[-30px]" >
             <div className="w-full relative  pl-10">
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
@@ -800,17 +810,18 @@ const About = () => {
                   ))}
 
                 </div>
+                <button
+                  onClick={() => window.location.href = '/honors'}
+                  className="mt-4 ml-4 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition"
+                >
+                  All Honors, Awards and Achievements
+                </button>
               </div>
-              <button
-                onClick={() => window.location.href = '/honors'}
-                className="mt-4 ml-4 px-4 py-2 bg-gray-200 text-gray-800 rounded shadow hover:bg-gray-300 transition"
-              >
-                All Honors, Awards and Achievements
-              </button>
+
             </div>
           </section>
 
-          <section>
+          <section className="mt-[-30px]">
             <div className="w-full relative  pl-10">
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
@@ -832,7 +843,7 @@ const About = () => {
             </div>
           </section>
 
-          <section>
+          <section className="mt-[-30px]">
             <div className="w-full relative  pl-10">
               <div className="mb-10 relative">
                 <div className="absolute left-[-18px] top-1 h-full flex flex-col items-center">
