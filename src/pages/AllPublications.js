@@ -11,13 +11,13 @@ const allPublications = [
   // 2023
   "Vishwakarma VK, Shah S, Kaur T, Singh AP, Arava SK, Kumar N, Yadav RK, Yadav S, Arora T, Yadav HN. Effect of vinpocetine alone and in combination with enalapril in experimental model of diabetic cardiomyopathy in rats: possible involvement of PDE-1/TGF-β/ Smad 2/3 signalling pathways. J Pharm Pharmacol. 2023 Sep 1;75(9):1198-1211. doi: 10.1093/jpp/rgad043. PMID: 37229596.",
   // 2022
-  "Bagchi S, Upadhyay AD, Barwad A, Singh G, Subbiah AK, Yadav RK, Mahajan S, Bhowmik D, Kumar Agarwal S, The International IgA nephropathy network (IIgANN) prediction tool underestimates disease progression in Indian patients, Kidney International Reports (2022), doi: https://doi.org/10.1016/j.ekir.2022.03.016.",
+  "Bagchi S, Upadhyay AD, Barwad A, Singh G, Subbiah AK, Yadav RK, Mahajan S, Bhowmik D, Kumar Agarwal S, The International IgA nephropathy network (IIgANN) prediction tool underestimates disease progression in Indian patients, Kidney International Reports (2022), doi: https://doi.org/10.1016/j.ekir.2022.03.016",
   "George K, Upadhyay AD, Subbiah AK, Yadav RK, Mahajan S, Bhowmik D, Agarwal SK, Bagchi S. Metabolic acidosis in the initial 6 months after renal transplantation: A prospective study. Nephrology (Carlton). 2022 Jan;27(1):90-96. doi: 10.1111/nep.13954. Epub 2021 Aug 2. PMID: 34302717.",
   "Yadav S, Chauhan M, Jain D, Aggarwal HK, Yadav RK: Renal Outcomes of Pregnancy-Related Acute Kidney Injury: a Single Centre Experience in India. MAEDICA – A Journal of Clinical Medicine 2022; 17(1): 88-95 https://doi.org/10.26574/maedica.2022.17.1.88",
   "Devagourou A, Sharma KK, Yadav RK, Gupta VP, Kalaivani M. An Experimental Study to Evaluate the Effect of Low-Intensity Intradialytic Exercises on Serum Urea, Creatinine, and Fatigue of Chronic Kidney Disease Patients Undergoing Hemodialysis. Saudi J Kidney Dis Transpl 2021;32(5):1253-1259.",
-  "Shadab, S., Mittal, P., Barwad, A. Singh G, Subbiah AK, Yadav RK et al. Characterizing predictors of non-diabetic kidney disease (NDKD) in diabetic patients. Int Urol Nephrol 54, 1303–1309 (2022). https://doi.org/10.1007/s11255-021-02998-1.",
+  "Shadab, S., Mittal, P., Barwad, A. Singh G, Subbiah AK, Yadav RK et al. Characterizing predictors of non-diabetic kidney disease (NDKD) in diabetic patients. Int Urol Nephrol 54, 1303–1309 (2022). https://doi.org/10.1007/s11255-021-02998-1",
   "Baksi A, Asuri K, Vuthaluru S, Yadav RK, Prajapati OP, Bansal VK, Kumar S, Mahajan S, Bhowmik D, Bagga A, Agarwal SK. Does Laparoscopic Omentectomy Reduce CAPD Catheter Malfunction: A Three-arm Pilot Randomized Trial. Indian J Nephrol. 2022 Jul-Aug;32(4):299-306. doi: 10.4103/ijn.ijn_168_21. Epub 2022 May 20. PMID: 35967525; PMCID: PMC9364995.",
-  "George K, Subbiah AK, Yadav RK, Bagchi S, Mahajan S, Bhowmik D, Agarwal SK: Utility and patient acceptance of telemedicine in nephrology. Journal of Nephrology (2022) 35:2325–2331 https://doi.org/10.1007/s40620-022-01471-1.",
+  "George K, Subbiah AK, Yadav RK, Bagchi S, Mahajan S, Bhowmik D, Agarwal SK: Utility and patient acceptance of telemedicine in nephrology. Journal of Nephrology (2022) 35:2325–2331 https://doi.org/10.1007/s40620-022-01471-1",
   "Mehra M, Yadav RK, Rajora MAK, Dahiya U, Agarwal SK: Factors affecting quality of day time and night time sleep among dialysis patients: A single center experience. Semin Dial. 2022 Sep 27. doi: 10.1111/sdi.13125. Epub ahead of print. PMID: 36167309.",
   "Sangha SS, Yadav RK, Subbiah A, Bagchi S, Mahajan S, Bhowmik D, et al. Clinical profile of nonproteinuric kidney disease in type 2 diabetic patients in India. Indian J Nephrol 0; 0:0",
   // 2021
@@ -29,7 +29,7 @@ const allPublications = [
   "Yadav RK, Bhowmik D, Subbiah A, Yadav S, Bagchi S, Mahajan S, Agarwal SK. To Study the Impact of Donor Nephrectomy on Blood Pressure as Measured by Ambulatory Blood Pressure Monitoring and Renal Function. Indian J Nephrol. 2019 Jul-Aug;29(4):272-277. doi: 10.4103/ijn.IJN_266_18.",
   // 2018
   "Subbiah A, Mahajan S, Yadav RK, Agarwal SK. Colovesical fistula: a rare complication after renal transplantation.BMJ Case Rep 2018 Jan 6:2018 published online First: 23.12.2017doi:10.1136/bcr-2017- 222682.",
-  "Subbiah A, Bagchi S, Bhowmik D, Mahajan S, Yadav RK, Chhabra Y, et al. Dengue fever in renal allograft recipients: Clinical course and outcome. Transpl Infect Dis. 2018 Mar 7: e12875; https://doi.org/10.IIII/tid.12875.",
+  "Subbiah A, Bagchi S, Bhowmik D, Mahajan S, Yadav RK, Chhabra Y, et al. Dengue fever in renal allograft recipients: Clinical course and outcome. Transpl Infect Dis. 2018 Mar 7: e12875; https://doi.org/10.IIII/tid.12875",
   "Aggarwal HK, Jain D, Mor S, Yadav RK, Jain P. Prevalence and Clinical Correlates of Microalbuminuria in Patients with Essential Hypertension - A Tertiary Care Center Cross Sectional Study. J Assoc Physicians India 2018;66,30-4.",
   "26.	Subbiah A, Mahajan S, Yadav RK, Agarwal SK. Intravenous immunoglobulin therapy for dengue capillary leak syndrome in a renal allograft recipient. BMJ Case Rep 19 June 2108. doi:10.1136/bcr-2018- 225",
   // 2017
