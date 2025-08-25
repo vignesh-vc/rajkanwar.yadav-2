@@ -410,7 +410,7 @@ const About = () => {
 
           {/* Specialty */}
           <section className="w-full text-xs sm:text-sm mb-1">
-            <h3 className="font-bold text-gray-800 mb-2">Specialty:{specialty}</h3>
+            <h3 className="font-bold text-gray-800 mb-2">Specialty : {specialty}</h3>
             {/* <p className="text-gray-700 mt-[-8px]"></p> */}
           </section>
 
