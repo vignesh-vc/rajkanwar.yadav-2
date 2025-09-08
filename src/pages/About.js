@@ -470,7 +470,7 @@ const About = () => {
 
         {/* Right Column (Scrolls) */}
         <div
-          className="flex flex-col gap-8 md:mt-[-930px]
+          className="flex flex-col gap-8 md:mt-[-1030px]
   md:ml-[480px]">   {/* 400px left + 50px gap */}
 
           <section>
