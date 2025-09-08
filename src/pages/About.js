@@ -64,7 +64,8 @@ const PersonalStatement = [
   "Finally for patients, it is my endeavor to deliver a reliable, responsible, transparent and ethical care to them who have entrusted their well-being in my hands."
 ]
 const defaultExperience = [
-  "Associate Professor (2019-till date), Department of Nephrology, AIIMS, New Delhi",
+  "Additional Professor (Current), Department of Nephrology, AIIMS, New Delhi",
+  "Associate Professor (2019), Department of Nephrology, AIIMS, New Delhi",
   "Assistant Professor (2015-2019): Department of Nephrology, AIIMS, New Delhi",
   "Recognized DM Nephrology teacher in Department of Nephrology, AIIMS, New Delhi 03-10-2015 till date.",
   "MCI, India, recognized post graduate teacher in Department of Medicine, Pt. BDS, PGIMS, Rohtak – 2014-2015",
@@ -343,7 +344,7 @@ const About = () => {
           </h2>
           <p className="text-xs sm:text-sm md:text-[13px] text-gray-600 font-medium mb-2 text-center w-full leading-snug">
             M.B.B.S, M.D. (Medicine), D.M. (Nephrology)<br />
-            Associate Professor, Department of Nephrology, <br /> AIIMS – New Delhi
+            Additional Professor, Department of Nephrology, <br /> AIIMS – New Delhi
           </p>
 
           {/* Divider */}
@@ -494,7 +495,7 @@ const About = () => {
                 </div>
 
                 <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">Bio-Sketch</h2>
-                <ul className="pl-6 mt-4 space-y-2">
+                <ul className="pl-6 mt-4 text-justify space-y-2">
                   <li className="text-gray-600 leading-relaxed">
                     Dr. Raj Kanwar Yadav is a distinguished nephrologist and academician with
                     over two decades of experience in internal medicine and nephrology. He
@@ -503,7 +504,7 @@ const About = () => {
                     from the prestigious AIIMS, New Delhi.
                   </li>
                   <li className="text-gray-600 leading-relaxed">
-                    Currently serving as an Associate Professor in the Department of
+                    Currently serving as an Additional Professor in the Department of
                     Nephrology at AIIMS, New Delhi, Dr. Yadav has held numerous academic
                     positions, including faculty roles at PGIMS, Rohtak. He is a recognized
                     postgraduate and DM Nephrology teacher, actively involved in mentoring,
@@ -546,7 +547,7 @@ const About = () => {
                 </div>
 
                 <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">Education</h2>
-                <div className="space-y-6 pl-5">
+                <div className="space-y-6 text-justify  pl-5">
                   <div>
                     <h3 className="text-lg font-semibold">DM (Nephrology)</h3>
                     <p className="text-gray-600">AIIMS, New Delhi</p>
@@ -578,23 +579,23 @@ const About = () => {
               <Section ref={addToRefs} title="Affiliations and Membership">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {(additionalExperience["Affiliations and Memberships"] || []).map((item, index) => (
-                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
+                    <li key={index} className="leading-relaxed text-justify  break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
               <Section ref={addToRefs} title="Teaching Experience">
                 <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {defaultExperience.map((item, index) => (
-                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
+                    <li key={index} className="leading-relaxed text-justify  break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
               <Section ref={addToRefs} title="Nephrology Training">
-                <p className="text-gray-700 mb-4 whitespace-pre-line">
+                <p className="text-gray-700 text-justify  mb-4 whitespace-pre-line">
                   Dr. RK Yadav trained in Department of Nephrology at All India Institute Medical Sciences, New Delhi, a 2500 bedded super-specialty hospital, catering to the whole Nation and adjoining neighboring countries like Pakistan, Nepal, Afghanistan and Bangladesh, is truly one of its kind in the Asia.
                   Training at AIIMS has provided me with an unmatched clinical exposure in all aspects of nephrology. The tremendous patient load has rendered me competent and confident in dealing with all kinds of patients. Some aspects of my clinical experience are summarized here:
                 </p>
-                <ul className="list-disc pl-5">
+                <ul className="list-disc text-justify  pl-5">
                   {nephrologyTrainingPoints.slice(0, 5).map((point, idx) => (
                     <li key={idx}>{point}</li>
                   ))}
@@ -606,24 +607,24 @@ const About = () => {
                 </button>
               </Section>
               <Section ref={addToRefs} title="PG Thesis">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                <ul className="list-disc pl-5 text-justify  text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {(additionalExperience["Post Graduate Thesis:"] || []).map((item, index) => (
-                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
+                    <li key={index} className="leading-relaxed text-justify  break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
               <Section ref={addToRefs} title="Organizational Skills & Social Work">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                <ul className="list-disc text-justify  pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {(additionalExperience["Organizational skills and social work"] || []).map((item, index) => (
-                    <li key={index} className="leading-relaxed break-words w-full">{item}</li>
+                    <li key={index} className="leading-relaxed text-justify  break-words w-full">{item}</li>
                   ))}
                 </ul>
               </Section>
 
               <Section ref={addToRefs} title="Conferences">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                <ul className="list-disc text-justify  pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {getRecentByYear(conferences).map((conf, idx) => (
-                    <li key={idx} className="leading-relaxed break-words w-full">{linkify(conf)}</li>
+                    <li key={idx} className="leading-relaxed text-justify  break-words w-full">{linkify(conf)}</li>
                   ))}
                 </ul>
                 <button
@@ -634,9 +635,9 @@ const About = () => {
                 </button>
               </Section>
               <Section ref={addToRefs} title="Presentations">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                <ul className="list-disc text-justify  pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {getRecentByYear(presentations).map((pres, idx) => (
-                    <li key={idx} className="leading-relaxed break-words w-full">{linkify(pres)}</li>
+                    <li key={idx} className="leading-relaxed text-justify  break-words w-full">{linkify(pres)}</li>
                   ))}
                 </ul>
                 <button
@@ -649,9 +650,9 @@ const About = () => {
 
 
               <Section ref={addToRefs} title="Publications">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                <ul className="list-disc text-justify  pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {sortedRecentPublications.map((item, index) => (
-                    <li key={index} className="leading-relaxed break-words w-full">{linkify(item)}</li>
+                    <li key={index} className="leading-relaxed text-justify  break-words w-full">{linkify(item)}</li>
                   ))}
                 </ul>
                 <button
@@ -662,7 +663,7 @@ const About = () => {
                 </button>
               </Section>
               <Section ref={addToRefs} title="Clinical Trials">
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                <ul className="list-disc text-justify  pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   <li className="text-gray-600 leading-relaxed">
                     As Open-label, Randomized, Parallel-group, Two Arm Clinical Study to Evaluate the anti-inflammatory effect of ferronemia (lactoferrin + disodium guanosine monophosphate) tablet + Conservative Chronic Kidney Disease Management Therapy versus Conservative Chronic Kidney Disease Management Therapy in the Subjects with Chronic Kidney Disease.<br />
                     <b>Principal Investigator</b>, Jul 2022 - Mar 2023, Trial ID:
@@ -801,7 +802,7 @@ const About = () => {
                 </div>
 
                 <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">Honors, Awards and achievements</h2>
-                <div className="space-y-6 pl-5">
+                <div className="space-y-6 text-justify  pl-5">
                   {honorsAwards.slice(0, visibleHonors).map((item, idx) => (
                     <div key={idx}>
                       <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -833,9 +834,9 @@ const About = () => {
                 </div>
 
                 <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">Chapters in Book</h2>
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                <ul className="list-disc text-justify  pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {ChapterinBook.map((item, idx) => (
-                    <li key={idx} className="leading-relaxed break-words w-full">{item}</li>
+                    <li key={idx} className="leading-relaxed text-justify  break-words w-full">{item}</li>
                   ))}
                 </ul>
               </div>
@@ -855,9 +856,9 @@ const About = () => {
                 </div>
 
                 <h2 className="text-2xl ml-[10px] pt-[5px] font-semibold mb-2">Personal Statement</h2>
-                <ul className="list-disc pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
+                <ul className="text-justify  pl-5 text-gray-700 text-[16px] space-y-2 mb-8 break-words w-full">
                   {PersonalStatement.map((item, idx) => (
-                    <li key={idx} className="leading-relaxed break-words w-full">{item}</li>
+                    <li key={idx} className="leading-relaxed text-justify  break-words w-full">{item}</li>
                   ))}
                 </ul>
               </div>

@@ -146,11 +146,11 @@ const AllPublications = () => {
     <div className="min-h-screen bg-gray-50 px-6 md:px-20 py-12">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">List Of Publications</h1>
-        <ul className="space-y-4">
+        <ul className="space-y-4 text-justify">
           {allPublications.map((pub, idx) => (
             <li
               key={idx}
-              className="p-4 border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white"
+              className="p-4 text-justify border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white"
             >
               <div className="text-base font-semibold text-gray-800">{linkify(pub)}</div>
             </li>

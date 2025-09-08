@@ -93,7 +93,7 @@ const AllHonors = () => {
           {sortedHonors.map((item, idx) => (
             <li
             key={idx}
-            className="p-4 border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white"
+            className="p-4 text-justify border border-gray-300 rounded-lg shadow-sm transition-all duration-300 cursor-default hover:border-l-4 hover:border-[#00CC99] hover:pl-6 bg-white"
           >  <div className="text-base font-semibold text-gray-800">{item.title}</div>
             </li>
           ))}

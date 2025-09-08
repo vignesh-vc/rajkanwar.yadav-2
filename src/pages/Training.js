@@ -56,8 +56,8 @@ const Training = () => {
     <div className="min-h-screen bg-gray-50 px-6 md:px-20 py-12">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">Nephrology Training</h1>
-        <p className="text-gray-700 mb-4">Dr. RK Yadav trained in Department of Nephrology at All India Institute Medical Sciences, New Delhi, a 2500 bedded super-specialty hospital, catering to the whole Nation and adjoining neighboring countries like Pakistan, Nepal, Afghanistan and Bangladesh, is truly one of its kind in the Asia.</p>
-        <p className="text-gray-700 mb-8">Training at AIIMS has provided me with an unmatched clinical exposure in all aspects of nephrology. The tremendous patient load has rendered me competent and confident in dealing with all kinds of patients. Some aspects of my clinical experience are summarized here:</p>
+        <p className="text-gray-700 text-justify mb-4">Dr. RK Yadav trained in Department of Nephrology at All India Institute Medical Sciences, New Delhi, a 2500 bedded super-specialty hospital, catering to the whole Nation and adjoining neighboring countries like Pakistan, Nepal, Afghanistan and Bangladesh, is truly one of its kind in the Asia.</p>
+        <p className="text-gray-700 text-justify mb-8">Training at AIIMS has provided me with an unmatched clinical exposure in all aspects of nephrology. The tremendous patient load has rendered me competent and confident in dealing with all kinds of patients. Some aspects of my clinical experience are summarized here:</p>
         <ol className="list-decimal pl-6 space-y-2 text-gray-800">
           {nephrologyTrainingPoints.map((point, idx) => (
             <li key={idx}>{point}</li>
