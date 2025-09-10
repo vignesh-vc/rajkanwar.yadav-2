@@ -344,13 +344,14 @@ const About = () => {
     </div> */}
 
     {/* Bio Sketch */}
-    <h2 className="text-[28px] font-bold text-gray-900 text-center md:pl-[50px] leading-tight mb-2">
+    <h2 className="text-[28px] font-bold text-gray-900 text-center md:pl-[50px] md:pt-2 leading-tight mb-2">
       Dr. Raj Kanwar Yadav
-    </h2>
-    <p className="text-[16px] text-gray-600  font-medium mb-4 leading-snug">
-      M.B.B.S, M.D. (Medicine), D.M. (Nephrology) <br />
+       <p className="text-[14px] text-gray-600 font-medium mb-4 leading-snug">
+                        M.B.B.S, M.D. (Medicine), D.M. (Nephrology) <br />
       Additional Professor, Department of Nephrology,<br /> AIIMS – New Delhi
     </p>
+    </h2>
+   
 
 
 
