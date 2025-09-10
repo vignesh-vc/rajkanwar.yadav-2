@@ -324,31 +324,31 @@ const About = () => {
     className="
       flex flex-col items-start md:ml-[50px] md:w-[440px] 
       bg-gray-300 text-left border-r rounded-lg shadow-md p-6
-
+ md:mt-[-70px]
       /* Mobile: normal flow */
       mb-6 md:mb-0 
-
+      md:fixed
       /* Desktop: independent scroll */
       md:h-screen md:overflow-y-auto
     "
   >
     {/* Profile Image */}
-    <div className="w-full flex justify-center mb-6">
-      <div className="w-full max-w-[440px] h-[300px] sm:h-[400px] md:h-[400px] flex items-center justify-center rounded-lg ">
+    {/* <div className="w-full flex justify-center mb-6">
+      <div className="w-full max-w-[440px] h-[300px] sm:h-[400px] md:h-[400px] flex items-center justify-center rounded-lg "> */}
         <img
           src={profileImg}
           alt="Dr. Raj Kanwar Yadav"
-          className="w-[600px] sm:w-[300px] md:w-[400px] h-[300px] sm:h-[300px] md:h-[400px] object-cover shadow-md border-2 border-gray-400 rounded-lg"
+          className="w-[600px] md:mt-[50px] sm:w-[300px] md:w-[450px] h-[300px] sm:h-[300px] md:h-[450px] object-cover shadow-md border-2 border-gray-400 rounded-lg"
         />
-      </div>
-    </div>
+      {/* </div>
+    </div> */}
 
     {/* Bio Sketch */}
-    <h2 className="text-[28px] font-bold text-gray-900 leading-tight mb-2">
+    <h2 className="text-[28px] font-bold text-gray-900 text-center md:pl-[50px] leading-tight mb-2">
       Dr. Raj Kanwar Yadav
     </h2>
-    <p className="text-[18px] text-gray-600 font-medium mb-4 leading-snug">
-      M.B.B.S, M.D. (Medicine), D.M. (Nephrology)<br />
+    <p className="text-[16px] text-gray-600  font-medium mb-4 leading-snug">
+      M.B.B.S, M.D. (Medicine), D.M. (Nephrology) <br />
       Additional Professor, Department of Nephrology,<br /> AIIMS – New Delhi
     </p>
 
@@ -477,7 +477,7 @@ const About = () => {
         </div>
 
         {/* Right Column (normal scroll with page) */}
-        <div className="flex flex-col gap-8 md:ml-[-10px] flex-1">
+        <div className="flex flex-col gap-8 md:ml-[-10px] md:ml-[33%] flex-1">
           <section>
             <div className="w-full  relative  pl-10">
 
