@@ -318,170 +318,166 @@ const About = () => {
 
   return (
     <div className="min-h-screen px-2 sm:px-4 md:px-8 py-6 flex justify-center">
-      <div className="w-full max-w-[1500px]"> {/* prevent stretching too wide */}
-        {/* Left Column (Fixed) */}
-        <div
-          className="flex flex-col items-start md:ml-[50px] 
- md:top-16 md:left-0 
-  md:w-[440px] 
-  min-h-[calc(100vh-4rem)] 
-  p-6 bg-gray-300 
-  text-left border-r rounded-lg 
-  shadow-md"
-        >
-          {/* Profile Image Section */}
-          <div className="w-full flex justify-center mb-6">
-            <div className="w-full max-w-[440px] md:fixed h-[300px] sm:h-[400px] md:h-[500px] mt-[-20px] md:mt-[-50px] md:bg-gray-300 flex items-center justify-center rounded-lg shadow-md">
-              <img
-                src={profileImg}
-                alt="Dr. Raj Kanwar Yadav"
-                className="w-[600px] sm:w-[300px] md:w-[400px] h-[300px] sm:h-[300px] md:h-[400px] object-cover shadow-md border-2 border-gray-400  md:rounded-none"
-              />
-            </div>
+     <div className="w-full max-w-[1500px] flex flex-col md:flex-row">
+  {/* Left Column */}
+  <div
+    className="
+      flex flex-col items-start md:ml-[50px] md:w-[440px] 
+      bg-gray-300 text-left border-r rounded-lg shadow-md p-6
+
+      /* Mobile: normal flow */
+      mb-6 md:mb-0 
+
+      /* Desktop: independent scroll */
+      md:h-screen md:overflow-y-auto
+    "
+  >
+    {/* Profile Image */}
+    <div className="w-full flex justify-center mb-6">
+      <div className="w-full max-w-[440px] h-[300px] sm:h-[400px] md:h-[400px] flex items-center justify-center rounded-lg ">
+        <img
+          src={profileImg}
+          alt="Dr. Raj Kanwar Yadav"
+          className="w-[600px] sm:w-[300px] md:w-[400px] h-[300px] sm:h-[300px] md:h-[400px] object-cover shadow-md border-2 border-gray-400 rounded-lg"
+        />
+      </div>
+    </div>
+
+    {/* Bio Sketch */}
+    <h2 className="text-[28px] font-bold text-gray-900 leading-tight mb-2">
+      Dr. Raj Kanwar Yadav
+    </h2>
+    <p className="text-[18px] text-gray-600 font-medium mb-4 leading-snug">
+      M.B.B.S, M.D. (Medicine), D.M. (Nephrology)<br />
+      Additional Professor, Department of Nephrology,<br /> AIIMS – New Delhi
+    </p>
+
+
+
+
+          {/* Divider */}
+          <div className="flex items-center w-full my-3">
+            <hr className="flex-grow border-t border-gray-400" />
+            <span className="px-2 text-gray-500 text-[14px]">✦</span>
+            <hr className="flex-grow border-t border-gray-400" />
           </div>
 
-
-          {/* Content Wrapper (everything below image) */}
-          <div className="w-full flex flex-col md:pt-[450px] items-center text-center">
-            {/* Name + Designation */}
-            <h2 className="text-[28px] font-bold text-gray-900 leading-tight mb-2">
-              Dr. Raj Kanwar Yadav
-            </h2>
-            <p className="text-[18px] text-gray-600 font-medium mb-3 leading-snug">
-              M.B.B.S, M.D. (Medicine), D.M. (Nephrology)<br />
-              Additional Professor, Department of Nephrology,<br /> AIIMS – New Delhi
-            </p>
-
-            {/* Divider */}
-            <div className="flex items-center w-full my-3">
-              <hr className="flex-grow border-t border-gray-400" />
-              <span className="px-2 text-gray-500 text-[14px]">✦</span>
-              <hr className="flex-grow border-t border-gray-400" />
+          {/* Contact Info */}
+          <section className="w-full text-[17px] space-y-2 mb-4 text-gray-700 text-left">
+            <div className="flex items-start gap-2">
+              <img className="w-[20px] h-[20px]" src={Location} alt="location" />
+              <span>
+                Room no 4088, Teaching Block,<br />
+                Department of Nephrology,<br />
+                AIIMS, New Delhi – 110029
+              </span>
             </div>
 
-            {/* Contact Info */}
-            <section className="w-full text-[17px] space-y-2 mb-4 text-gray-700 text-left">
-              <div className="flex items-start gap-2">
-                <img className="w-[20px] h-[20px]" src={Location} alt="location" />
-                <span>
-                  Room no 4088, Teaching Block,<br />
-                  Department of Nephrology,<br />
-                  AIIMS, New Delhi – 110029
-                </span>
-              </div>
+            <ul className="flex gap-3 pl-6">
+              {socialLinks.map((link, idx) => (
+                <li key={idx}>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text text-[17px]"
+                  >
+                    {link.icon}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
 
-              <ul className="flex gap-3 pl-6">
-                {socialLinks.map((link, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text text-[17px]"
-                    >
-                      {link.icon}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
+          {/* Divider */}
+          <div className="flex items-center w-full my-3">
+            <hr className="flex-grow border-t border-gray-400" />
+            <span className="px-2 text-gray-500 text-[14px]">✦</span>
+            <hr className="flex-grow border-t border-gray-400" />
+          </div>
 
-            {/* Divider */}
-            <div className="flex items-center w-full my-3">
-              <hr className="flex-grow border-t border-gray-400" />
-              <span className="px-2 text-gray-500 text-[14px]">✦</span>
-              <hr className="flex-grow border-t border-gray-400" />
-            </div>
+          {/* Research Interests */}
+          <section className="w-full mb-3 text-left">
+            <h3 className="text-[20px] font-bold text-gray-800 mb-3">
+              Clinical/Research Interests
+            </h3>
+            <ul className="grid grid-cols-1 gap-y-2 gap-x-4">
+              {researchInterests.map((item, idx) => (
+                <li key={idx} className="flex items-center text-[17px] gap-2">
+                  <span className="text-gray-600">★</span>
+                  <span className="text-gray-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
 
-            {/* Research Interests */}
-            <section className="w-full mb-3 text-left">
-              <h3 className="text-[20px] font-bold text-gray-800 mb-3">
-                Clinical/Research Interests
-              </h3>
-              <ul className="grid grid-cols-1 gap-y-2 gap-x-4">
-                {researchInterests.map((item, idx) => (
-                  <li key={idx} className="flex items-center text-[17px] gap-2">
-                    <span className="text-gray-600">★</span>
-                    <span className="text-gray-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
+          {/* Divider */}
+          <div className="flex items-center w-full my-3">
+            <hr className="flex-grow border-t border-gray-400" />
+            <span className="px-2 text-gray-500 text-[14px]">✦</span>
+            <hr className="flex-grow border-t border-gray-400" />
+          </div>
 
-            {/* Divider */}
-            <div className="flex items-center w-full my-3">
-              <hr className="flex-grow border-t border-gray-400" />
-              <span className="px-2 text-gray-500 text-[14px]">✦</span>
-              <hr className="flex-grow border-t border-gray-400" />
-            </div>
+          {/* Specialty */}
+          <section className="w-full mb-3 text-left">
+            <h3 className="text-[20px] font-bold text-gray-800 mb-2">Specialty</h3>
+            <span className="text-[17px]">Nephrology</span>
+          </section>
 
-            {/* Specialty */}
-            <section className="w-full mb-3 text-left">
-              <h3 className="text-[20px] font-bold text-gray-800 mb-2">Specialty</h3>
-              <span className="text-[17px]">Nephrology</span>
-            </section>
+          {/* Divider */}
+          <div className="flex items-center w-full my-3">
+            <hr className="flex-grow border-t border-gray-400" />
+            <span className="px-2 text-gray-500 text-[14px]">✦</span>
+            <hr className="flex-grow border-t border-gray-400" />
+          </div>
 
-            {/* Divider */}
-            <div className="flex items-center w-full my-3">
-              <hr className="flex-grow border-t border-gray-400" />
-              <span className="px-2 text-gray-500 text-[14px]">✦</span>
-              <hr className="flex-grow border-t border-gray-400" />
-            </div>
-
-            {/* Social Media Presentations / Interviews */}
-            <section className="w-full mb-3 text-left">
-              <h3 className="text-[20px] font-bold text-gray-800 mb-3">
-                Social Media Presentations / Interviews
-              </h3>
-              <ul className="space-y-3">
+          {/* Social Media Presentations / Interviews */}
+          <section className="w-full mb-3 text-left">
+            <h3 className="text-[20px] font-bold text-gray-800 mb-3">
+              Social Media Presentations / Interviews
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="https://www.youtube.com/watch?v=P46IHWnac8c"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-blue-600 hover:underline text-[17px]"
+                >
+                  <FaYoutube className="text-red-600 text-lg" />
+                  Care and Misconception Part-1
+                </a>
+              </li>
+              <div className="grid grid-cols-1 gap-3">
                 <li>
                   <a
-                    href="https://www.youtube.com/watch?v=P46IHWnac8c"
+                    href="https://www.youtube.com/watch?v=-1h6bbxvWyM"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-blue-600 hover:underline text-[17px]"
                   >
                     <FaYoutube className="text-red-600 text-lg" />
-                    Care and Misconception Part-1
+                    Armaanon ki Udaan
                   </a>
                 </li>
-                <div className="grid grid-cols-1 gap-3">
-                  <li>
-                    <a
-                      href="https://www.youtube.com/watch?v=-1h6bbxvWyM"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-blue-600 hover:underline text-[17px]"
-                    >
-                      <FaYoutube className="text-red-600 text-lg" />
-                      Armaanon ki Udaan
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.youtube.com/watch?v=93kjWZKpkb0"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-blue-600 hover:underline text-[17px]"
-                    >
-                      <FaYoutube className="text-red-600 text-lg" />
-                      Dr R K Yadav - Nephrologist
-                    </a>
-                  </li>
-                </div>
-              </ul>
-            </section>
-          </div>
-
+                <li>
+                  <a
+                    href="https://www.youtube.com/watch?v=93kjWZKpkb0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-blue-600 hover:underline text-[17px]"
+                  >
+                    <FaYoutube className="text-red-600 text-lg" />
+                    Dr R K Yadav - Nephrologist
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </section>
         </div>
 
-
-
-        {/* Right Column (Scrolls) */}
-        <div
-          className="flex flex-col gap-8 md:mt-[-1390px]
-  md:ml-[480px]">   {/* 400px left + 50px gap */}
-
+        {/* Right Column (normal scroll with page) */}
+        <div className="flex flex-col gap-8 md:ml-[-10px] flex-1">
           <section>
             <div className="w-full  relative  pl-10">
 
